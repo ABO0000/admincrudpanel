@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useRef, useState} from 'react';
 import ReactDOM from 'react-dom';
 import {Navbar,Route,Link, Redirect} from 'react-router-dom';
 import api from '../../Api'
@@ -11,6 +11,8 @@ function Login() {
         email:'',
         password:'',
     })
+
+    const userForm = useRef(null)
     
     const [errors, setErrors] = useState({})
 
@@ -73,18 +75,15 @@ function Login() {
     }
 
 
-    
-    const userForms = document.getElementById('user_options-forms')
-
   
     const loginButton = () => {
-    userForms.classList.remove('bounceLeft')
-    userForms.classList.add('bounceRight')
+        userForm.current.classList.add('bounceRight')
+        userForm.current.classList.remove('bounceLeft')
     }
     
     const signupButton = () => {
-    userForms.classList.remove('bounceRight')
-    userForms.classList.add('bounceLeft')
+        userForm.current.classList.add('bounceLeft')
+        userForm.current.classList.remove('bounceRight')
     }
 
     
@@ -93,7 +92,7 @@ function Login() {
     return (
         
 
-        <section className="user">
+        <section className="user" style={{background:'rgb(209, 230, 243)'}}>
             <div className="user_options-container">
                 <div className="user_options-text">
                     <div className="user_options-unregistered">
@@ -101,26 +100,26 @@ function Login() {
                         <p className="user_unregistered-text">Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap.</p>
                         <button className="user_unregistered-signup" id="signup-button" onClick={()=>signupButton()}>Sign up</button>
                     </div>
-
                     <div className="user_options-registered">
                         <h2 className="user_registered-title">Have an account?</h2>
                         <p className="user_registered-text">Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap.</p>
                         <button className="user_registered-login" id="login-button" onClick={()=>loginButton()}>Login</button>
                     </div>
+
                 </div>
                 
-                <div className="user_options-forms" id="user_options-forms">
+                <div className="user_options-forms" name='user_options-forms' id="user_options-forms" ref={userForm}>
                     <div className="user_forms-login">
                         <h2 className="forms_title">Login</h2>
                         <div className="forms_form">
                             <fieldset className="forms_fieldset">
                                 <div className="forms_field">
                                 <label htmlFor="#username">{errors.email}</label>
-                                <input type="email" placeholder="Email" className="forms_field-input" required autoFocus value={user.email} onChange={(e)=>setUser({...user,email:e.target.value})}/>
+                                <input type="email" id='email' placeholder="Email" className="forms_field-input" required autoFocus value={user.email} onChange={(e)=>setUser({...user,email:e.target.value})}/>
                                 </div>
                                 <div className="forms_field">
                                 <label htmlFor="#password">{errors.password}</label>
-                                <input type="password" id="#password" placeholder="Password" className="forms_field-input" required value={user.password} onChange={(e)=>setUser({...user,password:e.target.value})}/>
+                                <input type="password" id="url" placeholder="Password" className="forms_field-input" required value={user.password} onChange={(e)=>setUser({...user,password:e.target.value})}/>
                                 </div>
                             </fieldset>
                             <div className="forms_buttons">

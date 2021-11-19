@@ -81,20 +81,20 @@ function Home() {
           {
             (!user)?
             
-              <li className="nav-link"><Link to='/login'   > Login</Link></li>:
+              <li className="nav-link"><Link to='/login'  style={{color:'black'}} > Login</Link></li>:
             (user[0].type==0)
             ?
             <div  style={{display:'flex',flexWrap:'wrap',justifyContent:'center' , alignItems:'center'}}>
-              <h5  style={{color:'white'}}>{user[0].name} {user[0].surname} </h5>
-              <li className="nav-link"><Link to='/'  href="#button"  onClick={()=>Logout()} > Logout</Link></li>
-              <li className="nav-link"><Link to='/addArticles'>Add articles</Link></li>
+              <h5  style={{color:'black'}}>{user[0].name} {user[0].surname} </h5>
+              <li className="nav-link"><Link to='/'  href="#button"  style={{color:'black'}} onClick={()=>Logout()} > Logout</Link></li>
+              <li className="nav-link"><Link to='/addArticles' style={{color:'black'}}>Add articles</Link></li>
             </div>:
             (user[0].type==1)?
             
             <div  style={{display:'flex',flexWrap:'wrap',justifyContent:'center' , alignItems:'center'}}>
-              <h5  style={{color:'white'}}>{user[0].name} {user[0].surname} </h5>
-              <li className="nav-link"><Link to='/'  href="#button"  onClick={()=>Logout()} > Logout</Link></li>
-              <li className="nav-link"><Link to='/addArticles'>Add articles</Link></li>
+              <h5  style={{color:'black'}}>{user[0].name} {user[0].surname} </h5>
+              <li className="nav-link"><Link to='/addArticles' style={{color:'black'}}>Add articles</Link></li>
+              <li className="nav-link" ><Link to='/'  href="#button"  style={{color:'black'}} onClick={()=>Logout()} > Logout</Link></li>
             </div>
             :''
           }
@@ -109,7 +109,7 @@ function Home() {
             <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""/>
           </div>
           <div className="google_homepage_content_searchbar">
-            <input type="search" placeholder="Search Google or type a URL" name="search" id="search" required value={searchArticle.title} onChange={(e)=>setSearchArticle({...searchArticle,title:e.target.value})}/>
+            <input type="search" placeholder="Search Google or type a URL"  required value={searchArticle.title} onChange={(e)=>setSearchArticle({...searchArticle,title:e.target.value})}/>
             <button className="speak">
               
             </button>
@@ -188,10 +188,7 @@ function Home() {
         </div>
       </div>
 
-        <div className="footer">
-        Designed With <i className="fa fa-heart"></i>
-        <a href="http://abhishekdana.tk">Abhishek Dana</a>
-        </div>
+        
   </div>
 
   )

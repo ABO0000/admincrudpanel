@@ -2076,7 +2076,6 @@ var options = {
   },
   crossdomain: true
 }; // options.baseURL = "https://admincrudpanel.herokuapp.com/api"; //for heroku
-// options.baseURL = "https://admincrudpanel.herokuapp.com/api"; //for heroku
 
 options.baseURL = "http://localhost:8000/api"; //for local
 
@@ -2665,8 +2664,8 @@ function Home() {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "google_homepage",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "google_homepage_header",
@@ -2675,6 +2674,9 @@ function Home() {
             className: "nav-link",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
               to: "/login",
+              style: {
+                color: 'black'
+              },
               children: " Login"
             })
           }) : user[0].type == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -2686,7 +2688,7 @@ function Home() {
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h5", {
               style: {
-                color: 'white'
+                color: 'black'
               },
               children: [user[0].name, " ", user[0].surname, " "]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
@@ -2694,6 +2696,9 @@ function Home() {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
                 to: "/",
                 href: "#button",
+                style: {
+                  color: 'black'
+                },
                 onClick: function onClick() {
                   return Logout();
                 },
@@ -2703,6 +2708,9 @@ function Home() {
               className: "nav-link",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
                 to: "/addArticles",
+                style: {
+                  color: 'black'
+                },
                 children: "Add articles"
               })
             })]
@@ -2715,24 +2723,30 @@ function Home() {
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h5", {
               style: {
-                color: 'white'
+                color: 'black'
               },
               children: [user[0].name, " ", user[0].surname, " "]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
               className: "nav-link",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-                to: "/",
-                href: "#button",
-                onClick: function onClick() {
-                  return Logout();
+                to: "/addArticles",
+                style: {
+                  color: 'black'
                 },
-                children: " Logout"
+                children: "Add articles"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
               className: "nav-link",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-                to: "/addArticles",
-                children: "Add articles"
+                to: "/",
+                href: "#button",
+                style: {
+                  color: 'black'
+                },
+                onClick: function onClick() {
+                  return Logout();
+                },
+                children: " Logout"
               })
             })]
           }) : ''
@@ -2750,8 +2764,6 @@ function Home() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
             type: "search",
             placeholder: "Search Google or type a URL",
-            name: "search",
-            id: "search",
             required: true,
             value: searchArticle.title,
             onChange: function onChange(e) {
@@ -2826,15 +2838,7 @@ function Home() {
           }) : '' : ''
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "footer",
-      children: ["Designed With ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
-        className: "fa fa-heart"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        href: "http://abhishekdana.tk",
-        children: "Abhishek Dana"
-      })]
-    })]
+    })
   });
 }
 
@@ -2893,6 +2897,8 @@ function Login() {
       user = _useState2[0],
       setUser = _useState2[1];
 
+  var userForm = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
       _useState4 = _slicedToArray(_useState3, 2),
       errors = _useState4[0],
@@ -2948,20 +2954,21 @@ function Login() {
     });
   };
 
-  var userForms = document.getElementById('user_options-forms');
-
   var loginButton = function loginButton() {
-    userForms.classList.remove('bounceLeft');
-    userForms.classList.add('bounceRight');
+    userForm.current.classList.add('bounceRight');
+    userForm.current.classList.remove('bounceLeft');
   };
 
   var signupButton = function signupButton() {
-    userForms.classList.remove('bounceRight');
-    userForms.classList.add('bounceLeft');
+    userForm.current.classList.add('bounceLeft');
+    userForm.current.classList.remove('bounceRight');
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
     className: "user",
+    style: {
+      background: 'rgb(209, 230, 243)'
+    },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "user_options-container",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -3001,7 +3008,9 @@ function Login() {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "user_options-forms",
+        name: "user_options-forms",
         id: "user_options-forms",
+        ref: userForm,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "user_forms-login",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
@@ -3018,6 +3027,7 @@ function Login() {
                   children: errors.email
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "email",
+                  id: "email",
                   placeholder: "Email",
                   className: "forms_field-input",
                   required: true,
@@ -3036,7 +3046,7 @@ function Login() {
                   children: errors.password
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "password",
-                  id: "#password",
+                  id: "url",
                   placeholder: "Password",
                   className: "forms_field-input",
                   required: true,
@@ -7970,7 +7980,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Montserrat);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0;\n  padding: 0;\n  background: #323639;\n  font-family: Montserrat;\n}\n\n.google_homepage {\n  width: 100%;\n}\n.google_homepage_header {\n  display: flex;\n  width: 100%;\n  text-align: right;\n  justify-content: flex-end;\n}\n.google_homepage_header ul {\n  display: flex;\n  align-items: center;\n}\n.google_homepage_header ul li {\n  margin: 0 10px;\n  list-style: none;\n  font-size: 16px;\n}\n.google_homepage_header ul li a {\n  color: white;\n  text-decoration: none;\n  display: inline-block;\n  line-height: 24px;\n  outline: none;\n  vertical-align: middle;\n}\n.google_homepage_header ul li a:hover {\n  text-decoration: underline;\n}\n.google_homepage_header ul li a img {\n  border-radius: 100px;\n}\n.google_homepage_content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n}\n.google_homepage_content_logo {\n  min-height: -webkit-fit-content;\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n  position: relative;\n  text-align: center;\n  margin: 25px auto;\n}\n.google_homepage_content_searchbar {\n  width: 400px;\n  max-width: 100%;\n  margin: 0;\n  display: flex;\n}\n.google_homepage_content_searchbar input {\n  width: 100%;\n  background: white;\n  border: 1px solid #dfe1e5;\n  box-sizing: border-box;\n  font-size: 16px;\n  height: 46px;\n  line-height: 21px;\n  padding: 0 0 0 10px;\n  max-width: 584px;\n  transition: none;\n  border-radius: 25px;\n}\n.google_homepage_content_searchbar input:focus {\n  outline: none;\n}\n.google_homepage_content_searchbar button.speak {\n  -webkit-margin-end: 16px;\n          margin-inline-end: 16px;\n  position: relative;\n  right: 35px;\n  border: none;\n  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik0xMiAxNWMxLjY2IDAgMi45OS0xLjM0IDIuOTktM0wxNSA1YzAtMS42Ni0xLjM0LTMtMy0zUzkgMy4zNCA5IDV2N2MwIDEuNjYgMS4zNCAzIDMgM3oiLz4KICAgIDxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xMSAxOC45MmgyVjIyaC0yeiIvPgogICAgPHBhdGggZmlsbD0iI0Y0QjQwMCIgZD0iTTcgMTJINWMwIDEuOTMuNzggMy42OCAyLjA1IDQuOTVsMS40MS0xLjQxQzcuNTYgMTQuNjMgNyAxMy4zOCA3IDEyeiIvPgogICAgPHBhdGggZmlsbD0iI0VBNDMzNSIgZD0iTTEyIDE3Yy0xLjM4IDAtMi42My0uNTYtMy41NC0xLjQ3bC0xLjQxIDEuNDFDOC4zMiAxOC4yMSAxMC4wNyAxOSAxMi4wMSAxOWMzLjg3IDAgNi45OC0zLjE0IDYuOTgtN2gtMmMwIDIuNzYtMi4yMyA1LTQuOTkgNXoiLz4KPC9zdmc+Cg==) no-repeat center;\n}\n.google_homepage_content_addrecent {\n  text-align: center;\n  margin: 20px auto;\n  width: 100px;\n  height: 150px;\n  padding: 20px;\n  cursor: pointer;\n  color: white;\n  font-size: 12px;\n  font-weight: 900;\n}\n.google_homepage_content_addrecent i {\n  background: rgba(0, 0, 0, 0.45);\n  padding: 16px;\n  vertical-align: center;\n  border-radius: 100px;\n  color: white;\n  margin: 40px 0;\n}\n.google_homepage_content_addrecent:hover {\n  background: rgba(255, 255, 255, 0.25);\n  border-radius: 10px;\n}\n\n.footer {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  text-align: center;\n  color: white;\n  padding: 16px 0;\n}\n.footer a {\n  color: #ffffffc7;\n  text-decoration: none;\n}\n\n@media screen and (max-width: 400px) {\n  .google_homepage_content_searchbar {\n    width: 100%;\n  }\n  .google_homepage_content_searchbar input {\n    max-width: 100%;\n    width: 100%;\n    font-size: 12px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0;\n  padding: 0;\n  background: #d1e6f3;\n  font-family: Montserrat;\n}\n\n.google_homepage {\n  width: 100%;\n}\n.google_homepage_header {\n  display: flex;\n  width: 100%;\n  text-align: right;\n  justify-content: flex-end;\n}\n.google_homepage_header ul {\n  display: flex;\n  align-items: center;\n}\n.google_homepage_header ul li {\n  margin: 0 10px;\n  list-style: none;\n  font-size: 16px;\n}\n.google_homepage_header ul li a {\n  color: white;\n  text-decoration: none;\n  display: inline-block;\n  line-height: 24px;\n  outline: none;\n  vertical-align: middle;\n}\n.google_homepage_header ul li a:hover {\n  text-decoration: underline;\n}\n.google_homepage_header ul li a img {\n  border-radius: 100px;\n}\n.google_homepage_content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n}\n.google_homepage_content_logo {\n  min-height: -webkit-fit-content;\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n  position: relative;\n  text-align: center;\n  margin: 25px auto;\n}\n.google_homepage_content_searchbar {\n  width: 400px;\n  max-width: 100%;\n  margin: 0;\n  display: flex;\n}\n.google_homepage_content_searchbar input {\n  width: 100%;\n  background: white;\n  border: 1px solid #dfe1e5;\n  box-sizing: border-box;\n  font-size: 16px;\n  height: 46px;\n  line-height: 21px;\n  padding: 0 0 0 10px;\n  max-width: 584px;\n  transition: none;\n  border-radius: 25px;\n}\n.google_homepage_content_searchbar input:focus {\n  outline: none;\n}\n.google_homepage_content_searchbar button.speak {\n  -webkit-margin-end: 16px;\n          margin-inline-end: 16px;\n  position: relative;\n  right: 35px;\n  border: none;\n  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik0xMiAxNWMxLjY2IDAgMi45OS0xLjM0IDIuOTktM0wxNSA1YzAtMS42Ni0xLjM0LTMtMy0zUzkgMy4zNCA5IDV2N2MwIDEuNjYgMS4zNCAzIDMgM3oiLz4KICAgIDxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xMSAxOC45MmgyVjIyaC0yeiIvPgogICAgPHBhdGggZmlsbD0iI0Y0QjQwMCIgZD0iTTcgMTJINWMwIDEuOTMuNzggMy42OCAyLjA1IDQuOTVsMS40MS0xLjQxQzcuNTYgMTQuNjMgNyAxMy4zOCA3IDEyeiIvPgogICAgPHBhdGggZmlsbD0iI0VBNDMzNSIgZD0iTTEyIDE3Yy0xLjM4IDAtMi42My0uNTYtMy41NC0xLjQ3bC0xLjQxIDEuNDFDOC4zMiAxOC4yMSAxMC4wNyAxOSAxMi4wMSAxOWMzLjg3IDAgNi45OC0zLjE0IDYuOTgtN2gtMmMwIDIuNzYtMi4yMyA1LTQuOTkgNXoiLz4KPC9zdmc+Cg==) no-repeat center;\n}\n.google_homepage_content_addrecent {\n  text-align: center;\n  margin: 20px auto;\n  width: 100px;\n  height: 150px;\n  padding: 20px;\n  cursor: pointer;\n  color: white;\n  font-size: 12px;\n  font-weight: 900;\n}\n.google_homepage_content_addrecent i {\n  background: rgba(0, 0, 0, 0.45);\n  padding: 16px;\n  vertical-align: center;\n  border-radius: 100px;\n  color: white;\n  margin: 40px 0;\n}\n.google_homepage_content_addrecent:hover {\n  background: rgba(255, 255, 255, 0.25);\n  border-radius: 10px;\n}\n\n.footer {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  text-align: center;\n  color: white;\n  padding: 16px 0;\n}\n.footer a {\n  color: #ffffffc7;\n  text-decoration: none;\n}\n\n@media screen and (max-width: 400px) {\n  .google_homepage_content_searchbar {\n    width: 100%;\n  }\n  .google_homepage_content_searchbar input {\n    max-width: 100%;\n    width: 100%;\n    font-size: 12px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
