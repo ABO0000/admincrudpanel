@@ -1,0 +1,272 @@
+// @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
+
+// * {
+//   -webkit-font-smoothing: antialiased;
+//   color: #acbdce;
+// }
+
+// :root {
+//   --border-radius: 10px;
+// }
+
+// body, html {
+//   background: #e2e9f4;
+//   display: grid;
+//   height: 100%;
+//   grid-template: 1fr/100%;
+//   place-items: center;
+// }
+
+// .Card {
+//   padding: 1px;
+//   border-radius: var(--border-radius);
+//   background: linear-gradient(-67deg, rgba(#c8d8e7, .7), rgba(255,255,255,.8));
+//   overflow: hidden;
+//   box-shadow: 
+//     -2px -2px 6px rgba(#fff, .6),
+//     2px 2px 12px #c8d8e7;
+//   width: 380px;
+// }
+
+// .CardInner {
+//   padding: 16px 16px;
+//   background-color: #e2e9f4;
+//   border-radius: var(--border-radius);
+// }
+
+// .container {
+//   display: flex;
+// }
+
+// .Icon {
+//   min-width: 46px;
+//   min-height: 46px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border-radius: var(--border-radius);
+//   margin-right: 12px;
+//   box-shadow: 
+//     -2px -2px 6px rgba(#fff, .6),
+//     2px 2px 12px #c8d8e7;
+    
+//   svg {
+//     transform: translate(-1px, -1px);    
+//   }
+// }
+
+// label {
+//   font-family: "Hind", sans-serif;
+//   display: block;
+//   color: #3c4b66;
+//   margin-bottom: 12px;
+//   background: linear-gradient(45deg, rgba(#6b7b8f, 1), #3c4b66);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
+
+// .InputContainer {
+//   width: 100%;
+// }
+
+// input {
+//   background-color: #e3edf7;
+//   padding: 16px 32px;
+//   border: none;
+//   display: block;
+//   font-family: 'Orbitron', sans-serif;
+//   font-weight: 600;
+//   color: #a9b8c9;
+//   -webkit-appearance: none;
+//   transition: all 240ms ease-out;
+//   width: 100%;
+  
+//   &::placeholder {
+//     color: #6d7f8f;
+//   }
+  
+//   &:focus {
+//     outline: none;
+//     color: #6d7f8f;
+//     background-color: lighten(#e3edf7, 3%);
+//   }
+// };
+  
+// .InputContainer {
+//   --top-shadow: inset 1px 1px 3px #c5d4e3, inset 2px 2px 6px #c5d4e3;
+//   --bottom-shadow: inset -2px -2px 4px rgba(255,255,255, .7);
+  
+//   position: relative;
+//   border-radius: var(--border-radius);
+//   overflow: hidden;
+  
+//   &:before,
+//   &:after {
+//     left: 0;
+//     top: 0;
+//     display: block;
+//     content: "";
+//     pointer-events: none;
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//   }
+  
+//   &:before {
+//     box-shadow: var(--bottom-shadow);
+//   }
+  
+//   &:after {
+//     box-shadow: var(--top-shadow);
+//   }
+// }
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body{
+  margin: 0;
+  padding: 0;
+  background: rgb(50, 54, 57);
+  font-family: Montserrat;
+}
+
+.google_homepage {
+  width: 100%;
+  
+  &_header{
+    display: flex;
+    width: 100%;
+    text-align:right;
+    justify-content: flex-end;
+    & ul {
+      display: flex;
+      align-items: center;
+      & li{
+        margin: 0 10px;
+        list-style: none;
+        font-size: 16px;
+        
+        & a{
+          color: white;
+          text-decoration: none;
+          display: inline-block;
+          line-height: 24px;
+          outline: none;
+          vertical-align: middle;
+          &:hover{
+            text-decoration: underline;
+          }
+          & img{
+            border-radius: 100px;
+          }
+        }
+      }
+    }
+  }
+  
+  &_content{
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    &_logo{
+     min-height: fit-content;
+    position: relative;
+      text-align:center;
+      margin: 25px auto;
+    }
+    
+    &_searchbar{
+      width: 400px;
+      max-width: 100%;
+      margin: 0;
+      display: flex;
+      & input{
+     width: 100%;
+     background: white;
+    border: 1px solid rgb(223, 225, 229);
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 46px;
+    line-height: 21px;
+    padding: 0 0 0 10px;
+    max-width: 584px;
+    transition: none;
+    border-radius: 25px;
+        
+        &:focus {
+          outline: none;
+        }
+      }
+      & button.speak{
+    margin-inline-end: 16px;
+    position: relative;
+    right: 35px;
+    border: none;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik0xMiAxNWMxLjY2IDAgMi45OS0xLjM0IDIuOTktM0wxNSA1YzAtMS42Ni0xLjM0LTMtMy0zUzkgMy4zNCA5IDV2N2MwIDEuNjYgMS4zNCAzIDMgM3oiLz4KICAgIDxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xMSAxOC45MmgyVjIyaC0yeiIvPgogICAgPHBhdGggZmlsbD0iI0Y0QjQwMCIgZD0iTTcgMTJINWMwIDEuOTMuNzggMy42OCAyLjA1IDQuOTVsMS40MS0xLjQxQzcuNTYgMTQuNjMgNyAxMy4zOCA3IDEyeiIvPgogICAgPHBhdGggZmlsbD0iI0VBNDMzNSIgZD0iTTEyIDE3Yy0xLjM4IDAtMi42My0uNTYtMy41NC0xLjQ3bC0xLjQxIDEuNDFDOC4zMiAxOC4yMSAxMC4wNyAxOSAxMi4wMSAxOWMzLjg3IDAgNi45OC0zLjE0IDYuOTgtN2gtMmMwIDIuNzYtMi4yMyA1LTQuOTkgNXoiLz4KPC9zdmc+Cg==) no-repeat center;
+      }
+    }
+    
+    &_addrecent{
+      text-align: center;
+      margin: 20px auto;
+      
+      width: 100px;
+      height: 150px;
+      padding: 20px;
+      cursor: pointer;
+      color: white;
+      font-size: 12px;
+      font-weight: 900;
+      & i {
+        background: rgba(0,0,0,.45);
+        padding: 16px;
+        vertical-align: center;
+        border-radius: 100px;
+        color: white;
+        margin: 40px 0;
+      }
+      
+      &:hover{
+        background: rgba(255,255,255,.25);
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align:center;
+  color: white;
+  padding: 16px 0;
+  & a{
+    color: #ffffffc7;
+    text-decoration: none;
+    
+  }
+}
+
+@media screen and (max-width: 400px)
+{
+  
+  .google_homepage_content_searchbar{
+    width: 100%;
+    & input{
+      max-width: 100%;
+      width: 100%;
+      font-size: 12px;
+    }
+  } 
+}
+
+
+
+
