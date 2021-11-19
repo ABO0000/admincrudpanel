@@ -7,8 +7,8 @@ const options = {
     },
     crossdomain: true
 };
-// options.baseURL = "https://admincrudpanel.herokuapp.com/api"; //for heroku
-options.baseURL = process.env.MIX_API_URL; //for local
+options.baseURL = "https://protected-everglades-43017.herokuapp.com/api"; //for heroku
+// options.baseURL = process.env.MIX_API_URL; //for local
 const instance = axios.create(options);
 instance.interceptors.response.use(response => {
     return response.data;
