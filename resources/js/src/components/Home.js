@@ -14,7 +14,6 @@ import useDebounceEffect from '../helpers/useDebounceEffect';
 function Home() {
 
   let user = JSON.parse(localStorage.getItem('userData'))
-  
 
   const Logout=()=>{
     if(localStorage.getItem('userData')){
