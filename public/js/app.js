@@ -2189,7 +2189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Api */ "./resources/js/Api.js");
 /* harmony import */ var _css_login_sass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../css/login.sass */ "./resources/css/login.sass");
 /* harmony import */ var _css_login_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../css/login.css */ "./resources/css/login.css");
@@ -2223,6 +2223,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function AddArticle() {
   var user = JSON.parse(localStorage.getItem('userData'))[0];
+  var myModal = document.getElementById('myModal');
+  var myInput = document.getElementById('myInput'); // myModal.addEventListener('shown.bs.modal', function () {
+  //   myInput.focus()
+  // })
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     title: '',
@@ -2238,6 +2242,7 @@ function AddArticle() {
       addErrors = _useState4[0],
       setAddErrors = _useState4[1];
 
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
   console.log(user.id);
 
   var AddArticle = function AddArticle(e) {
@@ -2250,24 +2255,26 @@ function AddArticle() {
       for (var i = 0; i < addArticle.imgs[0].imgs.length; i++) {
         data.append("data" + i, addArticle.imgs[0].imgs[i]);
       }
-    } // for (var elems of data) {
-    //     arr.push(elems)
-    // }
+    }
 
-
-    var res = _Api__WEBPACK_IMPORTED_MODULE_2__["default"].post('/addArticle', data).then(function (data) {
-      if (data.status == 200) {
-        {
-          setAddArticle({
-            title: '',
-            description: '',
-            imgs: []
-          });
+    if (addArticle.title == '' || addArticle.description == '' || addArticle.imgs == '') {
+      alert("You are not add article, becouse you are don't completed all fields");
+    } else {
+      var res = _Api__WEBPACK_IMPORTED_MODULE_2__["default"].post('/addArticle', data).then(function (data) {
+        if (data.status == 200) {
+          {
+            setAddArticle({
+              title: '',
+              description: '',
+              imgs: []
+            });
+          }
         }
-      }
-    })["catch"](function (errors) {
-      setAddErrors(errors.response.data.errors);
-    });
+      })["catch"](function (errors) {
+        setAddErrors(errors.response.data.errors);
+      });
+      history.push('/');
+    }
   };
 
   var userForms = document.getElementById('user_options-forms');
@@ -2300,9 +2307,62 @@ function AddArticle() {
     }
   };
 
+  var redirectHandler = function redirectHandler() {
+    return history.push('/');
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
     className: "user",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "modal fade",
+      id: "exampleModalCenter",
+      tabIndex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalCenterTitle",
+      "aria-hidden": "true",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "modal-dialog modal-dialog-centered",
+        role: "document",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "modal-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "modal-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
+              className: "modal-title",
+              id: "exampleModalLongTitle",
+              children: "Modal title"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              type: "button",
+              className: "close",
+              "data-dismiss": "modal",
+              "aria-label": "Close",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                "aria-hidden": "true",
+                children: "\xD7"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "modal-body",
+            children: "Are you wont closed"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "modal-footer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              type: "button",
+              className: "btn btn-secondary",
+              "data-dismiss": "modal",
+              children: "Close"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              "data-dismiss": "modal",
+              onClick: function onClick() {
+                return redirectHandler();
+              },
+              className: "btn btn-primary",
+              children: "Yes"
+            })]
+          })]
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "user_options-text",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "user_options-unregistered",
@@ -2314,20 +2374,28 @@ function AddArticle() {
           id: "signup-button"
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "user_options-forms",
       id: "user_options-forms",
       style: {
         marginLeft: '-25%'
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+        src: "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png",
+        "data-toggle": "modal",
+        "data-target": "#exampleModalCenter",
+        style: {
+          width: '20px',
+          marginLeft: '97%'
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "user_forms-login",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
           className: "forms_title",
           children: "Add Articles"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "forms_form ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("fieldset", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("fieldset", {
             className: "forms_fieldset",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "forms_field",
@@ -2394,26 +2462,22 @@ function AddArticle() {
                 })
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "forms_buttons",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-              to: "/",
-              children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-                type: "submit",
-                value: "Add Article",
-                className: "forms_buttons-action",
-                style: {
-                  background: 'darkgray',
-                  marginTop: '-30%'
-                },
-                onClick: function onClick() {
-                  return AddArticle();
-                }
-              })]
-            })
-          })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "forms_buttons",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            type: "submit",
+            value: "Add Article",
+            className: "forms_buttons-action",
+            style: {
+              background: 'darkgray'
+            },
+            onClick: function onClick() {
+              return AddArticle();
+            }
+          })
         })]
-      })
+      })]
     })]
   });
 }
