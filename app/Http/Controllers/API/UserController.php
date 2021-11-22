@@ -82,7 +82,7 @@ class UserController extends Controller
             dump($file->getClientOriginalName());
             $file->move(public_path('/images'), $imageName);
             
-            
+            $pathToFile = Image::disk('public')->put('images/', $file);
             Image::create([
                 'article_id'=>$article->id,
                 'image' => $imageName,
