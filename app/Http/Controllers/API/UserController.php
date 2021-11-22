@@ -78,11 +78,12 @@ class UserController extends Controller
         ]);
 
         foreach($files as $file){
-            $imageName = time().$file->getClientOriginalName().'.' .$file->getClientOriginalExtension();
+            $imageName = time().$file->getClientOriginalName();
+            // .$file->getClientOriginalExtension()
             dump($file->getClientOriginalName());
             $file->move(public_path('/images'), $imageName);
             
-            $pathToFile = Image::disk('public')->put('images/', $file);
+            
             Image::create([
                 'article_id'=>$article->id,
                 'image' => $imageName,
