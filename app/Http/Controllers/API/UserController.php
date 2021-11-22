@@ -91,7 +91,7 @@ class UserController extends Controller
                 ]);
             }
             
-            // $imageName = time().'.'.$request->image;
+            $imageName = time().'.'.$request->image;
             return response()->json([
             'status'=>200,
         ]);
