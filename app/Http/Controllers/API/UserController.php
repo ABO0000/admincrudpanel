@@ -117,7 +117,6 @@ class UserController extends Controller
         ]);
 
         foreach($files as $file){
-            ini_set('memory_limit', '-1');
             if (!File::exists(public_path('/storage/images'))) {
                 mkdir(public_path('/storage/images'));
             }
