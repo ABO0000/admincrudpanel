@@ -2779,7 +2779,7 @@ function Article() {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "content",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: window.location.protocol + "/images/".concat(image.image),
+                src: window.location.origin + "/storage/images/".concat(image.image),
                 style: {
                   height: '200px',
                   maxWidth: '200px',

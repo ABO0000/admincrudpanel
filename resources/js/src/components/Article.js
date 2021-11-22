@@ -81,9 +81,7 @@ function Article() {
                                     images.map((image,i) => (
 
                                         <div className="content" key ={i}>
-                                            <img  src={ window.location.protocol+`/images/${image.image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
-
-                                            
+                                            <img  src={ window.location.origin + `/storage/images/${image.image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
                                         </div>
                                     ))
                                 :''

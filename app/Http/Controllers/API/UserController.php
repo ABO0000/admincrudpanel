@@ -11,6 +11,7 @@ use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -116,10 +117,13 @@ class UserController extends Controller
         ]);
 
         foreach($files as $file){
-            // dd($file);
+            if (!File::exists(public_path('/storage/images'))) {
+                mkdir(public_path('/storage/images'));
+            }
+            
             $imageName = time() . $file->getClientOriginalName();
             // .$file->getClientOriginalExtension()
-            $file->move(public_path('/images'), $imageName);
+            $file->move(public_path('/storage/images'), $imageName);
             
             
             Image::create([
