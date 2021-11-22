@@ -59,26 +59,65 @@ class UserController extends Controller
     }
 
 
+    // public function addArticle(ArticleRequest $request)
+    // {
+    //     $files = request()->file();
+    //     $title = request()->title;
+    //     $description = request()->description;
+    //     $user_id = request()->user_id;
+    //     dump($title);
+    //     dump($description);
+    //     dump($user_id);
+    //     dd($files);
+
+    //     $article = Article::create([
+    //        'user_id'=>$user_id,
+    //        'title' => $title,
+    //        'description' => $description,
+           
+    //     ]);
+
+    //     foreach($files as $file){
+    //         $imageName = time().$file->getClientOriginalName();
+    //         // .$file->getClientOriginalExtension()
+    //         $file->move(public_path('/images'), $imageName);
+            
+            
+    //         Image::create([
+    //             'article_id'=>$article->id,
+    //             'image' => $imageName,
+                
+    //             ]);
+    //         }
+            
+    //         return response()->json([
+    //         'status'=>200,
+    //     ]);
+    // } 
+
+
+
     public function addArticle(ArticleRequest $request)
     {
-        $files = request()->file();
-        $title = request()->title;
-        $description = request()->description;
-        $user_id = request()->user_id;
+        $files = $request->file;
+        $title = $request->title;
+        $description = $request->description;
+        $user_id = $request->user_id;
         // dump($title);
         // dump($description);
         // dump($user_id);
         // dd($files);
 
         $article = Article::create([
-           'user_id'=>$user_id,
+           'user_id' => $user_id,
            'title' => $title,
            'description' => $description,
            
         ]);
 
         foreach($files as $file){
-            $imageName = time().$file->getClientOriginalName();
+            // dd($file);
+            $imageName = time() . $file->getClientOriginalName();
             // .$file->getClientOriginalExtension()
             $file->move(public_path('/images'), $imageName);
             
@@ -86,14 +125,12 @@ class UserController extends Controller
             Image::create([
                 'article_id'=>$article->id,
                 'image' => $imageName,
-                
-                ]);
-            }
+            ]);
+        }
             
-            return response()->json([
-            'status'=>200,
-        ]);
+        return response()->json(['status' => 200]);
     } 
+
 
 
    
