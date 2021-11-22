@@ -117,10 +117,11 @@ class UserController extends Controller
         ]);
 
         foreach($files as $file){
+            ini_set('memory_limit', '-1');
             if (!File::exists(public_path('/storage/images'))) {
                 mkdir(public_path('/storage/images'));
             }
-            
+
             $imageName = time() . $file->getClientOriginalName();
             // .$file->getClientOriginalExtension()
             $file->move(public_path('/storage/images'), $imageName);
