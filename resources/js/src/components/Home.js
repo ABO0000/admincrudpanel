@@ -79,7 +79,7 @@ function Home() {
       
           <ul>
           {
-            (!user)?
+            (!user || user==[null])?
             <div  style={{display:'flex',flexWrap:'wrap',justifyContent:'center' , alignItems:'center'}}>
               <li className="nav-link"><Link to='/allArticles' style={{color:'black'}}> Articles</Link></li>
               <li className="nav-link"><Link to='/login'  style={{color:'black'}} > Login</Link></li>
@@ -151,7 +151,7 @@ function Home() {
                 <div>
         {
           (Articles)?
-            (!user || user[0].type==0)
+            (!user || user==[null] || user[0].type==0)
             ?
               Articles.map((article,i) => (
                 <ul key={i} className="list-group" style={{width:'100%'}}>
