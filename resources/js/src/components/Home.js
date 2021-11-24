@@ -35,7 +35,15 @@ function Home() {
 
 
   useDebounceEffect(() => {
-    if(searchArticle.title!=''){
+    if (searchArticle.title==''){
+      
+      api
+    .post('/searchArticle', '1')
+    .then(res => {
+      setArticles()
+    })
+    }
+    else if(searchArticle.title!==''){
     api
     .post('/searchArticle', searchArticle)
     .then(res => {
@@ -139,34 +147,30 @@ function Home() {
                   <div className="search" style={{position:'absolute',marginRight:'31%'}}>
                     <img src='https://www.freepnglogos.com/uploads/search-png/search-icon-clip-art-clkerm-vector-clip-art-online-22.png'/>
                   </div>
-
-                  <input type="text" id="gsearch" name="gsearch" style={{width:'100%'}} required value={searchArticle.title} onChange={(e)=>setSearchArticle({...searchArticle,title:e.target.value})}/>
-                  
+                  <input type="text" id="gsearch" name="gsearch" style={{width:'100%'}} required value={searchArticle.title} onChange={(e)=>setSearchArticle({...searchArticle,title:e.target.value})} autoComplete="off"/>
                   <div className="mic" style={{position:'absolute',marginLeft:'33%'}}>
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACrElEQVR42u2Xz2sTQRSAX8VSb1K8iNqKooJH2Ux6Ksn+iPQqxZMIehJB0do/IMhmQWsvHr2KSEGk0tSLIoWIYNUKij20F2/N7iaUZnYT0kYzzhMKs0HDJiTdLcwHDwKZSd63781LBiQSSW9JZdkhzfKm1Rz9mjZp/W9YdEU3vXv4HsQZ40FtNG36q5rls//Ej4tmbSS2T15Mvp3ExOPmEMQNbBtMMEyoljcFcQN7PqyAlqNfIG7gYQ0tYNIaxA1MrJPY3wImbUqBKAXSFv0tBSIVMOkvKRDtGKWN/T6FdqRAxFNoWwpEPIXqUqBT6ALU/UVgu8GW4GD3f6f9TRDYNJTDrk7YbtiqUumHwIYoUJuHERDAS0r4CvgFECgbY+cFAR7KT+g1POmCKFDNw6WggHc3fBtVb4CAoyauBgXIG+g1Xh5mRAGah6cggBd11fK/h7lOprIs0H6uRl6KAo5O7kOv4QmPiwJ4Jqqv4FiwCtXjvD2+tRmfK6kZ/ygI2HritK0rDVGgrClJ6DWMwYC/AGuCBMYcIC2V0CzvjmbRz3j3xUjn6CfeYreUJ2wQkGD75INPX1mFfsEFrrcIYCvdhC4paWQakxajpJMr0C9YFg54i7AsClRmh9/xnr0NHcInzZStk2aLwAcGMAD9pPIazvFKVDD5rdnhJeHLX5RTyRPQHpz5o66emMc9wdlPtvA8wF7Aq2BUHh1525qEo5JtR1WeOXpickO9cJIpyuD6xJmhYiZ5ytWSl3mlnuOaf+2zDaLDXmJrSgZ/MYVEugo+gSh+FkSBa4yd5Ul87DZ5XpFl/AyIEjzYjkau8WqshU2cr13HPbgX4gJOD97n465GZlyVvC9mSKloKI2iTnbwNT+gBX54H+IaXAtxJzE3ycSAFqSAFJACUkAikXD+AHj5/wx2o5osAAAAAElFTkSuQmCC"/>
                   </div>
                 </div>
 
                 
-                <div>
+                <div style={{width:'35%',justifyContent:'center',marginTop:'-25px' , alignItems:'center'}}>
         {
           (Articles)?
             (!user || user[0].type==0)
             ?
               Articles.map((article,i) => (
-                <ul key={i} className="list-group" style={{width:'100%'}}>
-                  <li data-label="first name"  className="list-group-item" style={{width:'350px',marginLeft:'5%'}}>
-                    <Link to={`/article/${article.id}`} >
-                    {article.title}
-                    </Link>  
+                <ul key={i} className="list-group"  style={{width:'100%'}}>
+                  <li data-label="first name"  className="list-group-item" style={{width:'100%'}}>
+                    <div className="search"  style={{width:'10%',display:'flex',alignItems:'center' ,marginLeft:'-10px'}}>
+                      <img src='https://www.freepnglogos.com/uploads/search-png/search-icon-clip-art-clkerm-vector-clip-art-online-22.png'/>
+                      <Link to={`/article/${article.id}`} style={{marginLeft:'10px'}} >
+                      {article.title}
+                      </Link>  
+                    </div>
                   </li>
 
-                  <li data-label="last name" style={{width:'260px' , minHeight:'20px'}}>
-                    <Link to={`/article/${article.id}`} >
-
-                      {article.description}
-                    </Link>
-                  </li>
+                  
 
                 </ul>
               )):
@@ -174,10 +178,13 @@ function Home() {
             ?
               Articles.map((article,i) => (
                 <ul key={i} className="list-group" style={{width:'100%'}}>
-                  <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
-                    <Link to={`/article/${article.id}`} >
-                    {article.title}
-                    </Link>  
+                  <li data-label="first name"  className="list-group-item"  style={{width:'100%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
+                    <div className="search"  style={{width:'10%',display:'flex',alignItems:'center' ,marginLeft:'-10px'}}>
+                      <img src='https://www.freepnglogos.com/uploads/search-png/search-icon-clip-art-clkerm-vector-clip-art-online-22.png'/>
+                      <Link to={`/article/${article.id}`} style={{marginLeft:'10px'}} >
+                      {article.title}
+                      </Link>  
+                    </div>
                     <div>
                       <img src={'https://icon-library.com/images/icon-delete/icon-delete-20.jpg'} style={{width:'40px'}} onClick={()=>Delete(`${article.id}`)}/>
 
@@ -196,7 +203,7 @@ function Home() {
         }
 
 </div>
-<div className="button-group">
+            <div className="button-group">
                   <button className="google-button" type="submit">Google Search</button>
                   <button className="google-button" type="submit">I'm Feeling Lucky</button>
                 </div>

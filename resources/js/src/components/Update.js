@@ -128,7 +128,7 @@ function Update() {
                 <div className="profile-card-ctr"> 
                     <button className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter">Save</button>
                 <Link to='/'>
-                <button className="profile-card__button button--blue js-message-btn" >Cansle</button>
+                <button className="profile-card__button button--blue js-message-btn" >Censle</button>
                   
                 </Link>
                 </div>

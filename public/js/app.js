@@ -2514,7 +2514,7 @@ function AddArticle() {
             className: "profile-card__button button--blue js-message-btn",
             "data-toggle": "modal",
             "data-target": "#exampleModalCenter",
-            children: "Cansle"
+            children: "Censle"
           })]
         })]
       })
@@ -3021,7 +3021,11 @@ function Home() {
       setArticles = _useState4[1];
 
   (0,_helpers_useDebounceEffect__WEBPACK_IMPORTED_MODULE_5__["default"])(function () {
-    if (searchArticle.title != '') {
+    if (searchArticle.title == '') {
+      _Api__WEBPACK_IMPORTED_MODULE_1__["default"].post('/searchArticle', '1').then(function (res) {
+        setArticles();
+      });
+    } else if (searchArticle.title !== '') {
       _Api__WEBPACK_IMPORTED_MODULE_1__["default"].post('/searchArticle', searchArticle).then(function (res) {
         setArticles(res.articles.data);
       });
@@ -3220,7 +3224,8 @@ function Home() {
                 return setSearchArticle(_objectSpread(_objectSpread({}, searchArticle), {}, {
                   title: e.target.value
                 }));
-              }
+              },
+              autoComplete: "off"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "mic",
               style: {
@@ -3232,34 +3237,43 @@ function Home() {
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            style: {
+              width: '35%',
+              justifyContent: 'center',
+              marginTop: '-25px',
+              alignItems: 'center'
+            },
             children: Articles ? !user || user[0].type == 0 ? Articles.map(function (article, i) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
                 className: "list-group",
                 style: {
                   width: '100%'
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
                   "data-label": "first name",
                   className: "list-group-item",
                   style: {
-                    width: '350px',
-                    marginLeft: '5%'
+                    width: '100%'
                   },
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-                    to: "/article/".concat(article.id),
-                    children: article.title
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "search",
+                    style: {
+                      width: '10%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      marginLeft: '-10px'
+                    },
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: "https://www.freepnglogos.com/uploads/search-png/search-icon-clip-art-clkerm-vector-clip-art-online-22.png"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                      to: "/article/".concat(article.id),
+                      style: {
+                        marginLeft: '10px'
+                      },
+                      children: article.title
+                    })]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-                  "data-label": "last name",
-                  style: {
-                    width: '260px',
-                    minHeight: '20px'
-                  },
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-                    to: "/article/".concat(article.id),
-                    children: article.description
-                  })
-                })]
+                })
               }, i);
             }) : user[0].type == 1 ? Articles.map(function (article, i) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
@@ -3271,16 +3285,29 @@ function Home() {
                   "data-label": "first name",
                   className: "list-group-item",
                   style: {
-                    width: '350px',
-                    marginLeft: '5%',
+                    width: '100%',
                     display: 'flex',
                     flexWrap: 'wrap',
                     justifyContent: 'space-between',
                     alignItems: 'center'
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-                    to: "/article/".concat(article.id),
-                    children: article.title
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "search",
+                    style: {
+                      width: '10%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      marginLeft: '-10px'
+                    },
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: "https://www.freepnglogos.com/uploads/search-png/search-icon-clip-art-clkerm-vector-clip-art-online-22.png"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                      to: "/article/".concat(article.id),
+                      style: {
+                        marginLeft: '10px'
+                      },
+                      children: article.title
+                    })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                       src: 'https://icon-library.com/images/icon-delete/icon-delete-20.jpg',
@@ -3899,7 +3926,7 @@ function Update() {
           to: "/",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             className: "profile-card__button button--blue js-message-btn",
-            children: "Cansle"
+            children: "Censle"
           })
         })]
       })]
