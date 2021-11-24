@@ -2997,7 +2997,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Home() {
   var user = JSON.parse(localStorage.getItem('userData'));
-  console.log(user, 'user');
 
   var Logout = function Logout() {
     if (localStorage.getItem('userData')) {
@@ -3052,7 +3051,7 @@ function Home() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "google_homepage_header",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
-          children: !user || user == [null] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          children: !user ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             style: {
               display: 'flex',
               flexWrap: 'wrap',
@@ -3233,7 +3232,7 @@ function Home() {
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            children: Articles ? !user || user == [null] || user[0].type == 0 ? Articles.map(function (article, i) {
+            children: Articles ? !user || user[0].type == 0 ? Articles.map(function (article, i) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
                 className: "list-group",
                 style: {
