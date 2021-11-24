@@ -60,80 +60,82 @@ class UserController extends Controller
     }
 
 
+    public function addArticle(ArticleRequest $request)
+    {
+        // dd('ok');
+        $files = request()->file();
+        $title = request()->title;
+        $description = request()->description;
+        $text = request()->text;
+        $user_id = request()->user_id;
+        // dump($title);
+        // dump($description);
+        // dump($user_id);
+        // dump($text);
+        $article = Article::create([
+           'user_id'=>$user_id,
+           'title' => $title,
+           'description' => $description,
+           'text' => $text,
+           
+        ]);
+        // dump($article);
+        foreach($files as $file){
+            $imageName = time().$file->getClientOriginalName();
+            // .$file->getClientOriginalExtension()
+            $file->move(public_path('/images'), $imageName);
+            
+            
+            Image::create([
+            'article_id'=>$article->id,
+            'image' => $imageName,
+            
+            ]);
+        }
+            
+        return response()->json([
+            'status'=>200,
+        ]);
+    } 
+
+
+
     // public function addArticle(ArticleRequest $request)
     // {
-    //     $files = request()->file();
-    //     $title = request()->title;
-    //     $description = request()->description;
-    //     $user_id = request()->user_id;
-    //     dump($title);
-    //     dump($description);
-    //     dump($user_id);
-    //     dd($files);
+    //     $files = $request->file;
+    //     $title = $request->title;
+    //     $description = $request->description;
+    //     $user_id = $request->user_id;
+    //     // dump($title);
+    //     // dump($description);
+    //     // dump($user_id);
+    //     // dd($files);
 
     //     $article = Article::create([
-    //        'user_id'=>$user_id,
+    //        'user_id' => $user_id,
     //        'title' => $title,
     //        'description' => $description,
            
     //     ]);
 
     //     foreach($files as $file){
-    //         $imageName = time().$file->getClientOriginalName();
+    //         if (!File::exists(public_path('/storage/images'))) {
+    //             mkdir(public_path('/storage/images'));
+    //         }
+
+    //         $imageName = time() . $file->getClientOriginalName();
     //         // .$file->getClientOriginalExtension()
-    //         $file->move(public_path('/images'), $imageName);
+    //         $file->move(public_path('/storage/images'), $imageName);
             
             
     //         Image::create([
     //             'article_id'=>$article->id,
     //             'image' => $imageName,
-                
-    //             ]);
-    //         }
+    //         ]);
+    //     }
             
-    //         return response()->json([
-    //         'status'=>200,
-    //     ]);
+    //     return response()->json(['status' => 200]);
     // } 
-
-
-
-    public function addArticle(ArticleRequest $request)
-    {
-        $files = $request->file;
-        $title = $request->title;
-        $description = $request->description;
-        $user_id = $request->user_id;
-        // dump($title);
-        // dump($description);
-        // dump($user_id);
-        // dd($files);
-
-        $article = Article::create([
-           'user_id' => $user_id,
-           'title' => $title,
-           'description' => $description,
-           
-        ]);
-
-        foreach($files as $file){
-            if (!File::exists(public_path('/storage/images'))) {
-                mkdir(public_path('/storage/images'));
-            }
-
-            $imageName = time() . $file->getClientOriginalName();
-            // .$file->getClientOriginalExtension()
-            $file->move(public_path('/storage/images'), $imageName);
-            
-            
-            Image::create([
-                'article_id'=>$article->id,
-                'image' => $imageName,
-            ]);
-        }
-            
-        return response()->json(['status' => 200]);
-    } 
 
 
 
@@ -225,6 +227,19 @@ class UserController extends Controller
             'status'=>200,
             'message'=>'OK'
         ]);
+    }
+
+    public function allArticles(Request $request)
+    {
+
+        $articles = Article::select('id','title','description')->get();
+        return response()->json([
+            'status'=>200,
+            'articles' => $articles,
+            
+        ]);
+        // return view('articles.index',compact('articles'))
+        // ->with('i',(request()->input('page',1)-1)*5);
     }
  
   

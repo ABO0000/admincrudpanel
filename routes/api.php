@@ -14,6 +14,7 @@ Route::post('/article_info',[UserController::class,'articleInfo']);
 Route::post('/deleteArticle',[UserController::class,'deleteArticle']);
 Route::post('/deleteImage',[UserController::class,'deleteImage']);
 Route::post('/updateArticle/{article}',[UserController::class,'updateArticle']);
+Route::post('/allArticles',[UserController::class,'allArticles']);
 
 
 

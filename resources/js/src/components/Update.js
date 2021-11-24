@@ -32,7 +32,7 @@ function Update() {
           api.post("/article_info",+articleId)
           .then((res) => {
               console.log(res)
-            setArticle({ title: res.article.title, description: res.article.description })
+            setArticle({ title: res.article.title, description: res.article.description , text:res.article.text})
             setUser({name:res.user.name , surname:res.user.surname})
             setImages(res.images)
           });
@@ -82,7 +82,6 @@ function Update() {
             </div>
           </div>
             <div className="profile-card js-profile-card">
-                <Link to='/'><img src='https://www.freeiconspng.com/thumbs/x-png/x-png-15.png' style={{width:'20px' ,marginLeft:'97%'}}></img></Link>
                 
 
                 <div className="profile-card__cnt js-profile-cnt" style={{marginTop:'40px'}}> 
@@ -95,6 +94,10 @@ function Update() {
                             <div className="profile-card-loc">
 
                             <input name='description' style={{maxWidth:'600px'}} defaultValue={article?.description} onChange={handleChange}></input>
+                            </div>
+                            <div className="profile-card-loc">
+
+                            <input name='text' style={{maxWidth:'600px'}} defaultValue={article?.text} onChange={handleChange}></input>
                             </div>
                         </div>
                     :''
@@ -121,10 +124,15 @@ function Update() {
                         </div>
 
                 </div>
-
+                    
                 <div className="profile-card-ctr"> 
                     <button className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter">Save</button>
+                <Link to='/'>
+                <button className="profile-card__button button--blue js-message-btn" >Cansle</button>
+                  
+                </Link>
                 </div>
+
             </div>
          </div>
     );

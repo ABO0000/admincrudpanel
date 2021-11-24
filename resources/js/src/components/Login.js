@@ -92,7 +92,7 @@ function Login() {
     return (
         
 
-        <section className="user" style={{background:'rgb(209, 230, 243)'}}>
+        <section className="user" style={{background:'rgb(255, 255, 255)'}}>
             <div className="user_options-container">
                 <div className="user_options-text">
                     <div className="user_options-unregistered">
@@ -128,24 +128,24 @@ function Login() {
                         </div>
                     </div>
                     
-                    <div className="user_forms-signup regForm" style={{minHeight: 600}}>
+                    <div className="user_forms-signup regForm" style={{minHeight: 600 }}>
                         <h2 className="forms_title">Sign Up</h2>
                         <div className="forms_form">
                             <fieldset className="forms_fieldset">
-                                <div className="forms_field">
+                                <div className="forms_field" style={{marginTop:'-30px'}}>
                                     <input type="text" placeholder="Full Name" className="forms_field-input" required value={regUser.name} onChange={(e)=>setRegUser({...regUser,name:e.target.value})}/>
                                     <p>{regErrors.name}</p>
                                 </div>
-                                <div className="forms_field">
+                                <div className="forms_field" style={{marginTop:'-30px'}}>
                                     <input type="text" placeholder="Surname" className="forms_field-input" required value={regUser.surname} onChange={(e)=>setRegUser({...regUser,surname:e.target.value})}/>
                                     <p>{regErrors.surname}</p>
                                 </div>
-                                <div className="forms_field">
+                                <div className="forms_field" style={{marginTop:'-30px'}}>
                                     <input type="email" placeholder="Email" className="forms_field-input" required value={regUser.email} onChange={(e)=>setRegUser({...regUser,email:e.target.value})}/>
                                     <p>{regErrors.email}</p>
                                 </div>
                                 
-                                <div className="forms_field">
+                                <div className="forms_field" >
                                     <input type="password" placeholder="Password" className="forms_field-input" required value={regUser.password} onChange={(e)=>setRegUser({...regUser,password:e.target.value})}/>
                                     <p>{regErrors.password}</p>
                                 </div>

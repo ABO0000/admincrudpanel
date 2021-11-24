@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('title');
             $table->string('description');
+            $table->string('text');
             $table->timestamps();
         });
     }

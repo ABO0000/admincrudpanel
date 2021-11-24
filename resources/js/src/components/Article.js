@@ -33,7 +33,7 @@ function Article() {
           api.post("/article_info",+articleId)
           .then((res) => {
               console.log(res)
-            setArticle({ title: res.article.title, description: res.article.description })
+            setArticle({ title: res.article.title, description: res.article.description,text:res.article.text })
             setUser({name:res.user.name , surname:res.user.surname})
             setImages(res.images)
           });
@@ -60,13 +60,17 @@ function Article() {
                         <div>
                             <div className="profile-card__name">{user.name} {user.surname}</div>
                             <div className="profile-card__txt"><strong>{article.title}</strong></div>
-
                             <div className="profile-card-loc">
-
                                 <h6 className="profile-card-loc__txt">
                                 {article.description}
                                 </h6>
                             </div>
+                            <div className="profile-card-loc">
+                                <h6 className="profile-card-loc__txt">
+                                {article.text}
+                                </h6>
+                            </div>
+
                         </div>
                     :''
                     }
@@ -81,7 +85,7 @@ function Article() {
                                     images.map((image,i) => (
 
                                         <div className="content" key ={i}>
-                                            <img  src={ window.location.origin + `/storage/images/${image.image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
+                                            <img  src={ window.location.origin + `/images/${image.image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
                                         </div>
                                     ))
                                 :''

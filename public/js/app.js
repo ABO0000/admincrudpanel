@@ -2212,166 +2212,6 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-// import React, { useState} from 'react';
-// import ReactDOM from 'react-dom';
-// import {Navbar,Route,Link, Redirect, useHistory} from 'react-router-dom';
-// import api from '../../Api'
-// import '../../../css/login.sass'
-// import '../../../css/login.css'
-// function AddArticle() {
-//     let user = JSON.parse(localStorage.getItem('userData'))[0]
-//     var myModal = document.getElementById('myModal')
-//     var myInput = document.getElementById('myInput')
-//     // myModal.addEventListener('shown.bs.modal', function () {
-//     //   myInput.focus()
-//     // })
-//     const [addArticle,setAddArticle] = useState({
-//         title:'',
-//         description:'',
-//         imgs:[]
-//     })
-//     const [addErrors, setAddErrors] = useState({})
-//     const history = useHistory()
-//     console.log(user.id)
-//     const AddArticle = (e) =>{
-//         let data = new FormData();
-//         data.append('title',[ addArticle.title ]);
-//         data.append('description',[ addArticle.description ]);
-//         data.append('user_id',[user.id]);
-//         if(addArticle.imgs.length != 0){
-//             for (let i = 0 ; i < addArticle.imgs[0].imgs.length ; i++) {
-//                 data.append("data"+i, addArticle.imgs[0].imgs[i]);
-//             } 
-//         }
-//         if(addArticle.title=='' || addArticle.description=='' || addArticle.imgs==''){
-//             alert("You are not add article, becouse you are don't completed all fields")
-//         }
-//         else{
-//             const res =  api.post('/addArticle',data)
-//             .then(data => {
-//                 if (data.status == 200) {
-//                     {
-//                         setAddArticle({
-//                             title:'',
-//                             description:'',
-//                             imgs:[]
-//                         })
-//                     }
-//                 }
-//             })
-//             .catch((errors) => {
-//                 setAddErrors(errors.response.data.errors)
-//             })
-//             history.push('/')
-//         }
-//     }
-//     const userForms = document.getElementById('user_options-forms')
-//     window.onload = function(){
-//         //Check File API support
-//         if(window.File && window.FileList && window.FileReader)
-//         {
-//             var filesInput = document.getElementById("files");
-//             filesInput.addEventListener("change", function(event){
-//                 var files = event.target.files; //FileList object
-//                 var output = document.getElementById("imgThumbnailPreview");
-//                 for(var i = 0; i< files.length; i++)
-//                 {
-//                     var file = files[i];
-//                     //Only pics
-//                     if(!file.type.match('image'))
-//                     continue;
-//                     var picReader = new FileReader();
-//                     picReader.addEventListener("load",function(event){
-//                         var picSrc = event.target.result;
-//                         var imgThumbnailElem = "<div className='imgThumbContainer'><div className='IMGthumbnail' ><img  src='" + picSrc + "'" +
-//                                 "title='"+file.name + "'/></div>";
-//                         output.innerHTML = output.innerHTML + imgThumbnailElem;            
-//                     });
-//                     //Read the image
-//                     picReader.readAsDataURL(file);
-//                 }                               
-//             });
-//         }
-//         else
-//         {
-//             alert("Your browser does not support File API");
-//         }
-//     }
-//     const redirectHandler = () => history.push('/')
-//     return (
-//         <section className="user">
-//             <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-//                 <div className="modal-dialog modal-dialog-centered" role="document">
-//                     <div className="modal-content">
-//                     <div className="modal-header">
-//                         <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
-//                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-//                         <span aria-hidden="true">&times;</span>
-//                         </button>
-//                     </div>
-//                     <div className="modal-body">
-//                         Are you wont closed
-//                     </div>
-//                     <div className="modal-footer">
-//                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-//                         <button data-dismiss="modal" onClick={() => redirectHandler()} className="btn btn-primary">Yes</button>
-//                     </div>
-//                     </div>
-//                 </div>
-//             </div>
-//             <div className="user_options-text">
-//                 <div className="user_options-unregistered">
-//                     <h2 className="user_unregistered-title"></h2>
-//                     <p className="user_unregistered-text"></p>
-//                     <p id="signup-button" ></p>
-//                 </div>
-//             </div>
-//             <div className="user_options-forms" id="user_options-forms" style={{marginLeft:'-25%'}}>
-//                     <img src='https://www.freeiconspng.com/thumbs/x-png/x-png-15.png' data-toggle="modal" data-target="#exampleModalCenter" style={{width:'20px' ,marginLeft:'97%'}}></img>
-//                 <div className="user_forms-login">
-//                     <h2 className="forms_title">Add Articles</h2>
-//                     <div className="forms_form ">
-//                         <fieldset className="forms_fieldset">
-//                         <div className="forms_field">
-//                                 <input type="text" placeholder="Title" className="forms_field-input" required value={addArticle.title} onChange={(e)=>setAddArticle({...addArticle,title:e.target.value})}/>
-//                                 <p>{addErrors.title}</p>
-//                             </div>
-//                             <div className="forms_field">
-//                                 <input type="text" placeholder="description" className="forms_field-input" required value={addArticle.description} onChange={(e)=>setAddArticle({...addArticle,description:e.target.value})}/>
-//                                 <p>{addErrors.description}</p>
-//                             </div>
-//                             <div className="forms_field">
-//                                 <div className='header'>Photo API - Photo Reader</div>
-//                                 <div  >
-//                                 <label htmlFor="files">Select multiple photo: </label>
-//                                 <input id="files" type="file" multiple 
-//                                     onChange ={(e)=> {
-//                                         // console.log(e.target.files, "Event")
-//                                         setAddArticle({
-//                                             ...addArticle,
-//                                             imgs: [{
-//                                                 ...addArticle,imgs:e.target.files
-//                                             }]
-//                                         })
-//                                     }}
-//                                 />        
-//                                 </div>
-//                                 <div >
-//                                 <div id="imgThumbnailPreview"style={{width:'100%' ,height:'50px',display:"flex"}}>
-//                                 </div>
-//                                 </div>
-//                             </div>
-//                         </fieldset>
-//                     </div>
-//                         <div className="forms_buttons">
-//                         <input type="submit" value="Add Article" className="forms_buttons-action" style={{background:'darkgray'}} onClick={()=>AddArticle()}/>
-//                         </div>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// }
-// export default AddArticle;
 
 
 
@@ -2391,6 +2231,7 @@ function AddArticle() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     title: '',
     description: '',
+    text: '',
     imgs: []
   }),
       _useState2 = _slicedToArray(_useState, 2),
@@ -2409,30 +2250,25 @@ function AddArticle() {
     var data = new FormData();
     data.append('title', [addArticle.title]);
     data.append('description', [addArticle.description]);
-    data.append('user_id', [user.id]); // data.append('file', addArticle.imgs);
+    data.append('text', [addArticle.text]);
+    data.append('user_id', [user.id]);
 
-    for (var x = 0; x < addArticle.imgs.length; x++) {
-      data.append("file[]", addArticle.imgs[x]);
-    } // if(addArticle.imgs.length != 0){
-    //     for (let i = 0 ; i < addArticle.imgs[0].imgs.length ; i++) {
-    //         data.append("data"+i, addArticle.imgs[0].imgs[i]);
-    //     } 
-    // }
+    if (addArticle.imgs.length != 0) {
+      for (var i = 0; i < addArticle.imgs[0].imgs.length; i++) {
+        data.append("data" + i, addArticle.imgs[0].imgs[i]);
+      }
+    }
 
-
-    if (addArticle.title == '' || addArticle.description == '' || addArticle.imgs == '') {
+    if (addArticle.title == '' || addArticle.description == '' || addArticle.text == '' || addArticle.imgs == '') {
       alert("You are not add article, becouse you are don't completed all fields");
     } else {
-      var res = _Api__WEBPACK_IMPORTED_MODULE_2__["default"].post('/addArticle', data, {
-        headers: {
-          'content-type': 'multipart/form-data'
-        }
-      }).then(function (data) {
+      var res = _Api__WEBPACK_IMPORTED_MODULE_2__["default"].post('/addArticle', data).then(function (data) {
         if (data.status == 200) {
           {
             setAddArticle({
               title: '',
               description: '',
+              text: '',
               imgs: []
             });
           }
@@ -2541,33 +2377,37 @@ function AddArticle() {
           id: "signup-button"
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "user_options-forms",
       id: "user_options-forms",
       style: {
         marginLeft: '-25%'
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-        src: "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png",
-        "data-toggle": "modal",
-        "data-target": "#exampleModalCenter",
-        style: {
-          width: '20px',
-          marginLeft: '97%'
-        }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "user_forms-login",
+        style: {
+          marginTop: '-50px'
+        },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
           className: "forms_title",
           children: "Add Articles"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "forms_form ",
+          style: {
+            marginTop: '-10px'
+          },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("fieldset", {
             className: "forms_fieldset",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "forms_field",
+              style: {
+                marginBottom: '-10px'
+              },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                 type: "text",
+                style: {
+                  marginTop: '-10px'
+                },
                 placeholder: "Title",
                 className: "forms_field-input",
                 required: true,
@@ -2585,6 +2425,9 @@ function AddArticle() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                 type: "text",
                 placeholder: "description",
+                style: {
+                  marginTop: '-10px'
+                },
                 className: "forms_field-input",
                 required: true,
                 value: addArticle.description,
@@ -2598,6 +2441,28 @@ function AddArticle() {
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "forms_field",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                type: "text",
+                placeholder: "text",
+                style: {
+                  marginTop: '-10px'
+                },
+                className: "forms_field-input",
+                required: true,
+                value: addArticle.text,
+                onChange: function onChange(e) {
+                  return setAddArticle(_objectSpread(_objectSpread({}, addArticle), {}, {
+                    text: e.target.value
+                  }));
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                children: addErrors.text
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              className: "forms_field",
+              style: {
+                marginTop: '-30px'
+              },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "header",
                 children: "Photo API - Photo Reader"
@@ -2612,10 +2477,9 @@ function AddArticle() {
                   onChange: function onChange(e) {
                     // console.log(e.target.files, "Event")
                     setAddArticle(_objectSpread(_objectSpread({}, addArticle), {}, {
-                      // imgs: [{
-                      //     ...addArticle, imgs: e.target.files[0]
-                      // }]
-                      imgs: e.target.files
+                      imgs: [_objectSpread(_objectSpread({}, addArticle), {}, {
+                        imgs: e.target.files
+                      })]
                     }));
                   }
                 })]
@@ -2624,16 +2488,19 @@ function AddArticle() {
                   id: "imgThumbnailPreview",
                   style: {
                     width: '100%',
-                    height: '50px',
+                    height: '40px',
                     display: "flex"
                   }
                 })
               })]
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "forms_buttons",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+          style: {
+            marginTop: '0'
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
             type: "submit",
             value: "Add Article",
             className: "forms_buttons-action",
@@ -2643,14 +2510,288 @@ function AddArticle() {
             onClick: function onClick() {
               return AddArticle();
             }
-          })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+            className: "profile-card__button button--blue js-message-btn",
+            "data-toggle": "modal",
+            "data-target": "#exampleModalCenter",
+            children: "Cansle"
+          })]
         })]
-      })]
+      })
     })]
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddArticle);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddArticle); // import React, { useState} from 'react';
+// import ReactDOM from 'react-dom';
+// import {Navbar,Route,Link, Redirect, useHistory} from 'react-router-dom';
+// import api from '../../Api'
+// import '../../../css/login.sass'
+// import '../../../css/login.css'
+// function AddArticle() {
+//     let user = JSON.parse(localStorage.getItem('userData'))[0]
+//     var myModal = document.getElementById('myModal')
+//     var myInput = document.getElementById('myInput')
+//     // myModal.addEventListener('shown.bs.modal', function () {
+//     //   myInput.focus()
+//     // })
+//     const [addArticle,setAddArticle] = useState({
+//         title:'',
+//         description:'',
+//         imgs:[]
+//     })
+//     const [addErrors, setAddErrors] = useState({})
+//     const history = useHistory()
+//     console.log(user.id)
+//     const AddArticle = (e) =>{
+//         let data = new FormData();
+//         data.append('title',[ addArticle.title ]);
+//         data.append('description',[ addArticle.description ]);
+//         data.append('user_id',[user.id]);
+//         // data.append('file', addArticle.imgs);
+//         for(var x = 0; x < addArticle.imgs.length; x++) {
+//             data.append("file[]", addArticle.imgs[x])
+//         }
+//         // if(addArticle.imgs.length != 0){
+//         //     for (let i = 0 ; i < addArticle.imgs[0].imgs.length ; i++) {
+//         //         data.append("data"+i, addArticle.imgs[0].imgs[i]);
+//         //     } 
+//         // }
+//         if(addArticle.title=='' || addArticle.description=='' || addArticle.imgs==''){
+//             alert("You are not add article, becouse you are don't completed all fields")
+//         }
+//         else{
+//             const res =  api.post('/addArticle', data, {
+//                 headers: {
+//                     'content-type': 'multipart/form-data'
+//                 }
+//             })
+//             .then(data => {
+//                 if (data.status == 200) {
+//                     {
+//                         setAddArticle({
+//                             title:'',
+//                             description:'',
+//                             imgs:[]
+//                         })
+//                     }
+//                 }
+//             })
+//             .catch((errors) => {
+//                 setAddErrors(errors.response.data.errors)
+//             })
+//             history.push('/')
+//         }
+//     }
+//     const userForms = document.getElementById('user_options-forms')
+//     window.onload = function(){
+//         //Check File API support
+//         if(window.File && window.FileList && window.FileReader)
+//         {
+//             var filesInput = document.getElementById("files");
+//             filesInput.addEventListener("change", function(event){
+//                 var files = event.target.files; //FileList object
+//                 var output = document.getElementById("imgThumbnailPreview");
+//                 for(var i = 0; i< files.length; i++)
+//                 {
+//                     var file = files[i];
+//                     //Only pics
+//                     if(!file.type.match('image'))
+//                     continue;
+//                     var picReader = new FileReader();
+//                     picReader.addEventListener("load",function(event){
+//                         var picSrc = event.target.result;
+//                         var imgThumbnailElem = "<div className='imgThumbContainer'><div className='IMGthumbnail' ><img  src='" + picSrc + "'" +
+//                                 "title='"+file.name + "'/></div>";
+//                         output.innerHTML = output.innerHTML + imgThumbnailElem;            
+//                     });
+//                     //Read the image
+//                     picReader.readAsDataURL(file);
+//                 }                               
+//             });
+//         }
+//         else
+//         {
+//             alert("Your browser does not support File API");
+//         }
+//     }
+//     const redirectHandler = () => history.push('/')
+//     return (
+//         <section className="user">
+//             <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+//                 <div className="modal-dialog modal-dialog-centered" role="document">
+//                     <div className="modal-content">
+//                     <div className="modal-header">
+//                         <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
+//                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+//                         <span aria-hidden="true">&times;</span>
+//                         </button>
+//                     </div>
+//                     <div className="modal-body">
+//                         Are you wont closed
+//                     </div>
+//                     <div className="modal-footer">
+//                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+//                         <button data-dismiss="modal" onClick={() => redirectHandler()} className="btn btn-primary">Yes</button>
+//                     </div>
+//                     </div>
+//                 </div>
+//             </div>
+//             <div className="user_options-text">
+//                 <div className="user_options-unregistered">
+//                     <h2 className="user_unregistered-title"></h2>
+//                     <p className="user_unregistered-text"></p>
+//                     <p id="signup-button" ></p>
+//                 </div>
+//             </div>
+//             <div className="user_options-forms" id="user_options-forms" style={{marginLeft:'-25%'}}>
+//                     <img src='https://www.freeiconspng.com/thumbs/x-png/x-png-15.png' data-toggle="modal" data-target="#exampleModalCenter" style={{width:'20px' ,marginLeft:'97%'}}></img>
+//                 <div className="user_forms-login">
+//                     <h2 className="forms_title">Add Articles</h2>
+//                     <div className="forms_form ">
+//                         <fieldset className="forms_fieldset">
+//                         <div className="forms_field">
+//                                 <input type="text" placeholder="Title" className="forms_field-input" required value={addArticle.title} onChange={(e)=>setAddArticle({...addArticle,title:e.target.value})}/>
+//                                 <p>{addErrors.title}</p>
+//                             </div>
+//                             <div className="forms_field">
+//                                 <input type="text" placeholder="description" className="forms_field-input" required value={addArticle.description} onChange={(e)=>setAddArticle({...addArticle,description:e.target.value})}/>
+//                                 <p>{addErrors.description}</p>
+//                             </div>
+//                             <div className="forms_field">
+//                                 <div className='header'>Photo API - Photo Reader</div>
+//                                 <div  >
+//                                 <label htmlFor="files">Select multiple photo: </label>
+//                                 <input id="files" type="file" multiple 
+//                                     onChange ={(e)=> {
+//                                         // console.log(e.target.files, "Event")
+//                                         setAddArticle({
+//                                             ...addArticle,
+//                                             // imgs: [{
+//                                             //     ...addArticle, imgs: e.target.files[0]
+//                                             // }]
+//                                             imgs: e.target.files
+//                                         })
+//                                     }}
+//                                 />        
+//                                 </div>
+//                                 <div >
+//                                 <div id="imgThumbnailPreview"style={{width:'100%' ,height:'50px',display:"flex"}}>
+//                                 </div>
+//                                 </div>
+//                             </div>
+//                         </fieldset>
+//                     </div>
+//                         <div className="forms_buttons">
+//                         <input type="submit" value="Add Article" className="forms_buttons-action" style={{background:'darkgray'}} onClick={()=>AddArticle()}/>
+//                         </div>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// }
+// export default AddArticle;
+
+/***/ }),
+
+/***/ "./resources/js/src/components/AllArticles.js":
+/*!****************************************************!*\
+  !*** ./resources/js/src/components/AllArticles.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _Api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Api */ "./resources/js/Api.js");
+/* harmony import */ var _css_article_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../css/article.scss */ "./resources/css/article.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function AllArticles() {
+  // let user = JSON.parse(localStorage.getItem('userData'))[0]
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      articles = _useState2[0],
+      setArticles = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log('ok');
+    _Api__WEBPACK_IMPORTED_MODULE_1__["default"].post("/allArticles").then(function (res) {
+      console.log(res);
+      setArticles(res.articles);
+    });
+  }, [setArticles]);
+  console.log(articles);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "wrapper",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "profile-card js-profile-card",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        to: "/",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          src: "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png",
+          style: {
+            width: '20px',
+            marginLeft: '97%'
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "profile-card__cnt js-profile-cnt",
+        style: {
+          marginTop: '40px'
+        },
+        children: articles ? articles.map(function (article, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+            className: "list-group",
+            style: {
+              width: '100%'
+            },
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+              "data-label": "first name",
+              className: "list-group-item",
+              style: {
+                width: '350px',
+                marginLeft: '5%',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+                to: "/article/".concat(article.id),
+                children: [article.title, " ", article.description]
+              })
+            })
+          }, i);
+        }) : ''
+      })]
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllArticles);
 
 /***/ }),
 
@@ -2718,7 +2859,8 @@ function Article() {
         console.log(res);
         setArticle({
           title: res.article.title,
-          description: res.article.description
+          description: res.article.description,
+          text: res.article.text
         });
         setUser({
           name: res.user.name,
@@ -2764,6 +2906,12 @@ function Article() {
               className: "profile-card-loc__txt",
               children: article.description
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "profile-card-loc",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
+              className: "profile-card-loc__txt",
+              children: article.text
+            })
           })]
         }) : ''
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -2779,7 +2927,7 @@ function Article() {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "content",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: window.location.origin + "/storage/images/".concat(image.image),
+                src: window.location.origin + "/images/".concat(image.image),
                 style: {
                   height: '200px',
                   maxWidth: '200px',
@@ -2811,13 +2959,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _Api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Api */ "./resources/js/Api.js");
 /* harmony import */ var _css_home_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../css/home.scss */ "./resources/css/home.scss");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _helpers_useDebounceEffect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../helpers/useDebounceEffect */ "./resources/js/src/helpers/useDebounceEffect.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _css_home_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../css/home.css */ "./resources/css/home.css");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _helpers_useDebounceEffect__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../helpers/useDebounceEffect */ "./resources/js/src/helpers/useDebounceEffect.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2839,7 +2988,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import '../../../css/profile.css'
+
 
 
 
@@ -2871,7 +3020,7 @@ function Home() {
       Articles = _useState4[0],
       setArticles = _useState4[1];
 
-  (0,_helpers_useDebounceEffect__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
+  (0,_helpers_useDebounceEffect__WEBPACK_IMPORTED_MODULE_5__["default"])(function () {
     if (searchArticle.title != '') {
       _Api__WEBPACK_IMPORTED_MODULE_1__["default"].post('/searchArticle', searchArticle).then(function (res) {
         setArticles(res.articles.data);
@@ -2896,36 +3045,71 @@ function Home() {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "google_homepage",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "google_homepage_header",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
-          children: !user ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
-            className: "nav-link",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-              to: "/login",
-              style: {
-                color: 'black'
-              },
-              children: " Login"
-            })
-          }) : user[0].type == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
+          children: !user ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             style: {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
               alignItems: 'center'
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h5", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+              className: "nav-link",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                to: "/allArticles",
+                style: {
+                  color: 'black'
+                },
+                children: " Articles"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+              className: "nav-link",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                to: "/login",
+                style: {
+                  color: 'black'
+                },
+                children: " Login"
+              })
+            })]
+          }) : user[0].type == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            style: {
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center'
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h5", {
               style: {
                 color: 'black'
               },
               children: [user[0].name, " ", user[0].surname, " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
               className: "nav-link",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                to: "/addArticles",
+                style: {
+                  color: 'black'
+                },
+                children: "Add articles"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+              className: "nav-link",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                to: "/allArticles",
+                style: {
+                  color: 'black'
+                },
+                children: " Articles"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+              className: "nav-link",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
                 to: "/",
                 href: "#button",
                 style: {
@@ -2936,40 +3120,40 @@ function Home() {
                 },
                 children: " Logout"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
-              className: "nav-link",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-                to: "/addArticles",
-                style: {
-                  color: 'black'
-                },
-                children: "Add articles"
-              })
             })]
-          }) : user[0].type == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }) : user[0].type == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             style: {
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
               alignItems: 'center'
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h5", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h5", {
               style: {
                 color: 'black'
               },
               children: [user[0].name, " ", user[0].surname, " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
               className: "nav-link",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
                 to: "/addArticles",
                 style: {
                   color: 'black'
                 },
                 children: "Add articles"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
               className: "nav-link",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                to: "/allArticles",
+                style: {
+                  color: 'black'
+                },
+                children: " Articles"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+              className: "nav-link",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
                 to: "/",
                 href: "#button",
                 style: {
@@ -2983,92 +3167,155 @@ function Home() {
             })]
           }) : ''
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "google_homepage_content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "google_homepage_content_logo",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-            src: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-            alt: ""
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "google_homepage_content_searchbar",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-            type: "search",
-            placeholder: "Search Google or type a URL",
-            required: true,
-            value: searchArticle.title,
-            onChange: function onChange(e) {
-              return setSearchArticle(_objectSpread(_objectSpread({}, searchArticle), {}, {
-                title: e.target.value
-              }));
-            }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-            className: "speak"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          children: Articles ? !user || user[0].type == 0 ? Articles.map(function (article, i) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
-              className: "list-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "google-function",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "google-name",
+              children: "g"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "google-name",
+              children: "o"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "google-name",
+              children: "o"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "google-name",
+              children: "g"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "google-name",
+              children: "l"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "google-name",
+              children: "e"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            style: {
+              width: '35%',
+              display: 'flex',
+              justifyContent: 'space-around',
+              alignItems: 'center'
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "search",
               style: {
-                width: '100%'
+                position: 'absolute',
+                marginRight: '31%'
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
-                "data-label": "first name",
-                className: "list-group-item",
-                style: {
-                  width: '350px',
-                  marginLeft: '5%'
-                },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-                  to: "/article/".concat(article.id),
-                  children: article.title
-                })
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                src: "https://www.freepnglogos.com/uploads/search-png/search-icon-clip-art-clkerm-vector-clip-art-online-22.png"
               })
-            }, i);
-          }) : user[0].type == 1 ? Articles.map(function (article, i) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("ul", {
-              className: "list-group",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              type: "text",
+              id: "gsearch",
+              name: "gsearch",
               style: {
                 width: '100%'
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
-                "data-label": "first name",
-                className: "list-group-item",
+              required: true,
+              value: searchArticle.title,
+              onChange: function onChange(e) {
+                return setSearchArticle(_objectSpread(_objectSpread({}, searchArticle), {}, {
+                  title: e.target.value
+                }));
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "mic",
+              style: {
+                position: 'absolute',
+                marginLeft: '33%'
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACrElEQVR42u2Xz2sTQRSAX8VSb1K8iNqKooJH2Ux6Ksn+iPQqxZMIehJB0do/IMhmQWsvHr2KSEGk0tSLIoWIYNUKij20F2/N7iaUZnYT0kYzzhMKs0HDJiTdLcwHDwKZSd63781LBiQSSW9JZdkhzfKm1Rz9mjZp/W9YdEU3vXv4HsQZ40FtNG36q5rls//Ej4tmbSS2T15Mvp3ExOPmEMQNbBtMMEyoljcFcQN7PqyAlqNfIG7gYQ0tYNIaxA1MrJPY3wImbUqBKAXSFv0tBSIVMOkvKRDtGKWN/T6FdqRAxFNoWwpEPIXqUqBT6ALU/UVgu8GW4GD3f6f9TRDYNJTDrk7YbtiqUumHwIYoUJuHERDAS0r4CvgFECgbY+cFAR7KT+g1POmCKFDNw6WggHc3fBtVb4CAoyauBgXIG+g1Xh5mRAGah6cggBd11fK/h7lOprIs0H6uRl6KAo5O7kOv4QmPiwJ4Jqqv4FiwCtXjvD2+tRmfK6kZ/ygI2HritK0rDVGgrClJ6DWMwYC/AGuCBMYcIC2V0CzvjmbRz3j3xUjn6CfeYreUJ2wQkGD75INPX1mFfsEFrrcIYCvdhC4paWQakxajpJMr0C9YFg54i7AsClRmh9/xnr0NHcInzZStk2aLwAcGMAD9pPIazvFKVDD5rdnhJeHLX5RTyRPQHpz5o66emMc9wdlPtvA8wF7Aq2BUHh1525qEo5JtR1WeOXpickO9cJIpyuD6xJmhYiZ5ytWSl3mlnuOaf+2zDaLDXmJrSgZ/MYVEugo+gSh+FkSBa4yd5Ul87DZ5XpFl/AyIEjzYjkau8WqshU2cr13HPbgX4gJOD97n465GZlyVvC9mSKloKI2iTnbwNT+gBX54H+IaXAtxJzE3ycSAFqSAFJACUkAikXD+AHj5/wx2o5osAAAAAElFTkSuQmCC"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: Articles ? !user || user[0].type == 0 ? Articles.map(function (article, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
+                className: "list-group",
                 style: {
-                  width: '350px',
-                  marginLeft: '5%',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
+                  width: '100%'
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-                  to: "/article/".concat(article.id),
-                  children: article.title
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-                    src: 'https://icon-library.com/images/icon-delete/icon-delete-20.jpg',
-                    style: {
-                      width: '40px'
-                    },
-                    onClick: function onClick() {
-                      return Delete("".concat(article.id));
-                    }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-                    to: "/update/".concat(article.id),
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                  "data-label": "first name",
+                  className: "list-group-item",
+                  style: {
+                    width: '350px',
+                    marginLeft: '5%'
+                  },
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                    to: "/article/".concat(article.id),
+                    children: article.title
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+                  "data-label": "last name",
+                  style: {
+                    width: '260px',
+                    minHeight: '20px'
+                  },
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                    to: "/article/".concat(article.id),
+                    children: article.description
+                  })
+                })]
+              }, i);
+            }) : user[0].type == 1 ? Articles.map(function (article, i) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
+                className: "list-group",
+                style: {
+                  width: '100%'
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
+                  "data-label": "first name",
+                  className: "list-group-item",
+                  style: {
+                    width: '350px',
+                    marginLeft: '5%',
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                    to: "/article/".concat(article.id),
+                    children: article.title
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: 'https://icon-library.com/images/icon-delete/icon-delete-20.jpg',
                       style: {
                         width: '40px'
                       },
-                      src: 'https://toppng.com/uploads/preview/user-edit-icon-edit-icon-white-11553486095hpvoxaoebd.png'
-                    })
+                      onClick: function onClick() {
+                        return Delete("".concat(article.id));
+                      }
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                      to: "/update/".concat(article.id),
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                        style: {
+                          width: '40px'
+                        },
+                        src: 'https://toppng.com/uploads/preview/user-edit-icon-edit-icon-white-11553486095hpvoxaoebd.png'
+                      })
+                    })]
                   })]
-                })]
-              })
-            }, i);
-          }) : '' : ''
-        })]
+                })
+              }, i);
+            }) : '' : ''
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "button-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+              className: "google-button",
+              type: "submit",
+              children: "Google Search"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+              className: "google-button",
+              type: "submit",
+              children: "I'm Feeling Lucky"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {})]
       })]
     })
   });
@@ -3199,7 +3446,7 @@ function Login() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
     className: "user",
     style: {
-      background: 'rgb(209, 230, 243)'
+      background: 'rgb(255, 255, 255)'
     },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "user_options-container",
@@ -3316,6 +3563,9 @@ function Login() {
               className: "forms_fieldset",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "forms_field",
+                style: {
+                  marginTop: '-30px'
+                },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "text",
                   placeholder: "Full Name",
@@ -3332,6 +3582,9 @@ function Login() {
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "forms_field",
+                style: {
+                  marginTop: '-30px'
+                },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "text",
                   placeholder: "Surname",
@@ -3348,6 +3601,9 @@ function Login() {
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "forms_field",
+                style: {
+                  marginTop: '-30px'
+                },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "email",
                   placeholder: "Email",
@@ -3469,7 +3725,8 @@ function Update() {
         console.log(res);
         setArticle({
           title: res.article.title,
-          description: res.article.description
+          description: res.article.description,
+          text: res.article.text
         });
         setUser({
           name: res.user.name,
@@ -3552,16 +3809,7 @@ function Update() {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "profile-card js-profile-card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-        to: "/",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-          src: "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png",
-          style: {
-            width: '20px',
-            marginLeft: '97%'
-          }
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "profile-card__cnt js-profile-cnt",
         style: {
           marginTop: '40px'
@@ -3592,6 +3840,16 @@ function Update() {
                 maxWidth: '600px'
               },
               defaultValue: article === null || article === void 0 ? void 0 : article.description,
+              onChange: handleChange
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "profile-card-loc",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              name: "text",
+              style: {
+                maxWidth: '600px'
+              },
+              defaultValue: article === null || article === void 0 ? void 0 : article.text,
               onChange: handleChange
             })
           })]
@@ -3630,14 +3888,20 @@ function Update() {
             }, i);
           }) : ''
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "profile-card-ctr",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
           className: "profile-card__button button--blue js-message-btn",
           "data-toggle": "modal",
           "data-target": "#exampleModalCenter",
           children: "Save"
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          to: "/",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "profile-card__button button--blue js-message-btn",
+            children: "Cansle"
+          })
+        })]
       })]
     })]
   });
@@ -3702,14 +3966,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _components_Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Login */ "./resources/js/src/components/Login.js");
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Home */ "./resources/js/src/components/Home.js");
 /* harmony import */ var _components_AddArticles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/AddArticles */ "./resources/js/src/components/AddArticles.js");
 /* harmony import */ var _components_Article__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Article */ "./resources/js/src/components/Article.js");
 /* harmony import */ var _components_Update__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Update */ "./resources/js/src/components/Update.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_AllArticles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/AllArticles */ "./resources/js/src/components/AllArticles.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -3721,27 +3987,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Router = function Router(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "py-4",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Switch, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
             exact: true,
             path: "/",
             component: _components_Home__WEBPACK_IMPORTED_MODULE_2__["default"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
             path: "/login",
             component: _components_Login__WEBPACK_IMPORTED_MODULE_1__["default"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
             path: "/addArticles",
             component: _components_AddArticles__WEBPACK_IMPORTED_MODULE_3__["default"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
             path: "/article/:id",
             component: _components_Article__WEBPACK_IMPORTED_MODULE_4__["default"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
             path: "/update/:id",
             component: _components_Update__WEBPACK_IMPORTED_MODULE_5__["default"]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+            path: "/allArticles",
+            component: _components_AllArticles__WEBPACK_IMPORTED_MODULE_6__["default"]
           })]
         })
       })
@@ -8194,6 +8463,30 @@ var Router = function Router(props) {
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/home.css":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/home.css ***!
+  \******************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".mic {\n  /* position: absolute;\n  display: inline-block; */\n  /*float: right;*/\n  width: 40px;\n  height: 35px;\n  border-left: none;\n  /* margin-top: 26px;\n  margin-left: -3%; */\n}\n.search{\n  /* position: absolute;\n  display: inline-block;  */\n  /* /*float: right; */\n  width: 34px;\n  height: 35px;\n  border-left: none;\n  /* margin-top: 28px;*/\n  /* margin-left: 5%;  */\n}\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: Arial, Helvetica, sans-serif\n}\n\n/* NAVIGATION */\nnav ul {\n  display: flex;\n  justify-content: flex-start;\n  align-items: baseline;\n  margin: 20px 15px 0;\n  font-size: 13px;\n}\n\nnav li {\n  list-style-type: none;\n  margin: 0 20px 0 0;\n  text-transform: capitalize;\n}\n\nnav li a {\n  text-decoration: none;\n  color: #000000;\n}\n\nnav li a:hover {\n  text-decoration: underline;\n}\n\n/* --- pushes the elements on the right */\n.nav-right {\n  margin-left: auto;\n}\n\n.sign-in-button {\n  background: #5555cf;\n  padding: 10px 15px;\n  cursor: pointer;\n  border-radius: 5px;\n  color: #ffffff;\n  letter-spacing: 1px;\n}\n\n.box-grid {\n  display: grid;\n  grid-template-columns: 5px 5px 5px;\n  grid-template-rows: 5px 5px 5px;\n  grid-column-gap: 3px;\n  grid-row-gap: 3px;\n}\n\n.box-item {\n  background: #000000;\n}\n\n/* GOOGLE LOGO AND SEARCH */\n.google-function {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 80px;\n}\n\n.google-name {\n  font-size: 80px;\n  font-weight: bold;\n}\n\n.google-name:nth-child(1) {\n  text-transform: capitalize;\n  color:#4285F4;\n}\n\n.google-name:nth-child(2n+2) {\n  color:#DB4437;\n}\n\n.google-name:nth-child(3) {\n  color:#F4B400;\n}\n\n.google-name:nth-child(4) {\n  color:#4285F4;\n}\n\n.google-name:nth-child(5) {\n  color:#0F9D58;\n}\n\n.google-name:nth-child(6) {\n  color:#DB4437;\n}\n\ninput[type=\"text\"] {\n  padding: 12px 40px;\n  margin: 20px 0 25px 0;\n  border-radius: 25px;\n  width: 450px;\n  outline: none;\n  border: 1px solid #888888;\n}\n\ninput[type=\"text\"]:hover {\n  box-shadow: 2px 2px 8px #888888;\n}\n\n.fa-search {\n  position: relative;\n  left: 35px;\n  bottom: 2px;\n  top: 2px;\n  color: #888888;\n}\n\n.button-group {\n  display: flex;\n  justify-content: center;\n}\n\n.google-button {\n  padding: 10px 15px;\n  margin-right: 10px;\n  border-radius: 5px;\n  border: none;\n}\n\n.google-button:hover {\n  cursor: pointer;\n  background: #e8e2e2;\n  border: 1px solid #838383;\n  box-shadow: 2px 2px 10px #888888;\n}\n\n/* FOOTERS */\nfooter {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  font-size: 14px;\n  background: #f2f2f2;\n  border: 1px solid #dadce0;\n  color: rgba(0, 0, 0, 0.54);\n}\n\n.footer-country {\n  border-bottom: 1px solid #dadce0;\n  padding: 10px 0 10px 20px;\n}\n\n.footer-details {\n  display: flex;\n  justify-content: flex-start;\n  padding: 10px 0 10px 20px;\n}\n\nfooter li {\n  list-style-type: none;\n  margin: 0 20px 0 0;\n}\n\n.footer-details li a {\n  color: rgba(0, 0, 0, 0.54);\n  text-decoration: none;\n}\n\n.footer-details li a:hover {\n  text-decoration: underline;\n}\n\n@media only screen and (max-width: 650px) {\n  .footer-details {\n    display: grid;\n    grid-template-columns: auto auto auto;\n    grid-template-rows: auto auto;\n    grid-column-gap: 15px;\n    grid-row-gap: 15px;\n    justify-content: center;\n  }\n}\n\n@media only screen and (max-width: 520px) {\n  input[type=\"text\"] {\n  width: 350px;\n  }\n}\n\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/login.css":
 /*!*******************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/login.css ***!
@@ -8261,7 +8554,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Montserrat);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0;\n  padding: 0;\n  background: #d1e6f3;\n  font-family: Montserrat;\n}\n\n.google_homepage {\n  width: 100%;\n}\n.google_homepage_header {\n  display: flex;\n  width: 100%;\n  text-align: right;\n  justify-content: flex-end;\n}\n.google_homepage_header ul {\n  display: flex;\n  align-items: center;\n}\n.google_homepage_header ul li {\n  margin: 0 10px;\n  list-style: none;\n  font-size: 16px;\n}\n.google_homepage_header ul li a {\n  color: white;\n  text-decoration: none;\n  display: inline-block;\n  line-height: 24px;\n  outline: none;\n  vertical-align: middle;\n}\n.google_homepage_header ul li a:hover {\n  text-decoration: underline;\n}\n.google_homepage_header ul li a img {\n  border-radius: 100px;\n}\n.google_homepage_content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n}\n.google_homepage_content_logo {\n  min-height: -webkit-fit-content;\n  min-height: -moz-fit-content;\n  min-height: fit-content;\n  position: relative;\n  text-align: center;\n  margin: 25px auto;\n}\n.google_homepage_content_searchbar {\n  width: 400px;\n  max-width: 100%;\n  margin: 0;\n  display: flex;\n}\n.google_homepage_content_searchbar input {\n  width: 100%;\n  background: white;\n  border: 1px solid #dfe1e5;\n  box-sizing: border-box;\n  font-size: 16px;\n  height: 46px;\n  line-height: 21px;\n  padding: 0 0 0 10px;\n  max-width: 584px;\n  transition: none;\n  border-radius: 25px;\n}\n.google_homepage_content_searchbar input:focus {\n  outline: none;\n}\n.google_homepage_content_searchbar button.speak {\n  -webkit-margin-end: 16px;\n          margin-inline-end: 16px;\n  position: relative;\n  right: 35px;\n  border: none;\n  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiLz4KICAgIDxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik0xMiAxNWMxLjY2IDAgMi45OS0xLjM0IDIuOTktM0wxNSA1YzAtMS42Ni0xLjM0LTMtMy0zUzkgMy4zNCA5IDV2N2MwIDEuNjYgMS4zNCAzIDMgM3oiLz4KICAgIDxwYXRoIGZpbGw9IiMzNEE4NTMiIGQ9Ik0xMSAxOC45MmgyVjIyaC0yeiIvPgogICAgPHBhdGggZmlsbD0iI0Y0QjQwMCIgZD0iTTcgMTJINWMwIDEuOTMuNzggMy42OCAyLjA1IDQuOTVsMS40MS0xLjQxQzcuNTYgMTQuNjMgNyAxMy4zOCA3IDEyeiIvPgogICAgPHBhdGggZmlsbD0iI0VBNDMzNSIgZD0iTTEyIDE3Yy0xLjM4IDAtMi42My0uNTYtMy41NC0xLjQ3bC0xLjQxIDEuNDFDOC4zMiAxOC4yMSAxMC4wNyAxOSAxMi4wMSAxOWMzLjg3IDAgNi45OC0zLjE0IDYuOTgtN2gtMmMwIDIuNzYtMi4yMyA1LTQuOTkgNXoiLz4KPC9zdmc+Cg==) no-repeat center;\n}\n.google_homepage_content_addrecent {\n  text-align: center;\n  margin: 20px auto;\n  width: 100px;\n  height: 150px;\n  padding: 20px;\n  cursor: pointer;\n  color: white;\n  font-size: 12px;\n  font-weight: 900;\n}\n.google_homepage_content_addrecent i {\n  background: rgba(0, 0, 0, 0.45);\n  padding: 16px;\n  vertical-align: center;\n  border-radius: 100px;\n  color: white;\n  margin: 40px 0;\n}\n.google_homepage_content_addrecent:hover {\n  background: rgba(255, 255, 255, 0.25);\n  border-radius: 10px;\n}\n\n.footer {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  text-align: center;\n  color: white;\n  padding: 16px 0;\n}\n.footer a {\n  color: #ffffffc7;\n  text-decoration: none;\n}\n\n@media screen and (max-width: 400px) {\n  .google_homepage_content_searchbar {\n    width: 100%;\n  }\n  .google_homepage_content_searchbar input {\n    max-width: 100%;\n    width: 100%;\n    font-size: 12px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0;\n  padding: 0;\n  background: white;\n  font-family: Montserrat;\n}\n\n.google_homepage {\n  width: 100%;\n}\n.google_homepage_header {\n  display: flex;\n  width: 100%;\n  text-align: right;\n  justify-content: flex-end;\n}\n.google_homepage_header ul {\n  display: flex;\n  align-items: center;\n}\n.google_homepage_header ul li {\n  margin: 0 10px;\n  list-style: none;\n  font-size: 16px;\n}\n.google_homepage_header ul li a {\n  color: white;\n  text-decoration: none;\n  display: inline-block;\n  line-height: 24px;\n  outline: none;\n  vertical-align: middle;\n}\n.google_homepage_header ul li a:hover {\n  text-decoration: underline;\n}\n.google_homepage_header ul li a img {\n  border-radius: 100px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -74296,6 +74589,36 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ "./node_modules/scheduler/cjs/scheduler-tracing.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./resources/css/home.css":
+/*!********************************!*\
+  !*** ./resources/css/home.css ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_home_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./home.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/home.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_home_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_home_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
