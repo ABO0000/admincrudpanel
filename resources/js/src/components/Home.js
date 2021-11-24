@@ -15,6 +15,7 @@ function Home() {
 
   let user = JSON.parse(localStorage.getItem('userData'))
 
+  console.log(user,'user')
   const Logout=()=>{
     if(localStorage.getItem('userData')){
       localStorage.removeItem('userData')

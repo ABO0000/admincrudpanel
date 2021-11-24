@@ -2997,6 +2997,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Home() {
   var user = JSON.parse(localStorage.getItem('userData'));
+  console.log(user, 'user');
 
   var Logout = function Logout() {
     if (localStorage.getItem('userData')) {
