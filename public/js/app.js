@@ -2075,9 +2075,9 @@ var options = {
     "Access-Control-Allow-Origin": '*'
   },
   crossdomain: true
-};
-options.baseURL = "https://protected-everglades-43017.herokuapp.com/api"; //for heroku
-// options.baseURL = process.env.MIX_API_URL; //for local
+}; // options.baseURL = "https://protected-everglades-43017.herokuapp.com/api"; //for heroku
+
+options.baseURL = "http://localhost:8000/api"; //for local
 
 var instance = axios__WEBPACK_IMPORTED_MODULE_0___default().create(options);
 instance.interceptors.response.use(function (response) {
