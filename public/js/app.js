@@ -2499,7 +2499,7 @@ function AddArticle() {
             className: "profile-card__button button--blue js-message-btn",
             "data-toggle": "modal",
             "data-target": "#exampleModalCenter",
-            children: "Censle"
+            children: "Cancel"
           })]
         })]
       })
@@ -3911,7 +3911,7 @@ function Update() {
           to: "/",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             className: "profile-card__button button--blue js-message-btn",
-            children: "Censle"
+            children: "Cancel"
           })
         })]
       })]
