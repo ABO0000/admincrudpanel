@@ -158,7 +158,7 @@ function AddArticle() {
             
             <div className="user_options-forms" id="user_options-forms" style={{marginLeft:'-25%'}}>
                 <div className="user_forms-login" style={{marginTop:'-50px'}}>
-                    <h2 className="forms_title">Addsadasd Articles</h2>
+                    <h2 className="forms_title">Add Articles</h2>
                     <div className="forms_form " style={{marginTop:'-10px'}}>
                         <fieldset className="forms_fieldset">
                         <div className="forms_field"  style={{marginBottom:'-10px'}}>
@@ -203,7 +203,7 @@ function AddArticle() {
                     </div>
                         <div className="forms_buttons" style={{marginTop:'0'}}>
                         <input type="submit" value="Add Article" className="forms_buttons-action" style={{background:'darkgray'}} onClick={()=>AddArticle()}/>
-                            <button className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter" >Cancelasdas</button>
+                            <button className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter" >Cancel</button>
                             
                         </div>
                 </div>
