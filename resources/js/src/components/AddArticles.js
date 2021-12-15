@@ -202,7 +202,7 @@ function AddArticle() {
                         </fieldset>
                     </div>
                         <div className="forms_buttons" style={{marginTop:'0'}}>
-                        <input type="submit" className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter"value="Add Article" className="forms_buttons-action" style={{background:'darkgray'}} onClick={()=>AddArticle()}/>
+                        <input type="submit" value="Add Article" className="forms_buttons-action" style={{background:'darkgray'}} onClick={()=>AddArticle()}/>
                             <button className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter" >Cancel</button>
                             
                         </div>
