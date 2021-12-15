@@ -36,11 +36,11 @@ function AllArticles() {
         <div className="profile-card js-profile-card">
           <Link to='/'><h3 style={{color:'darkgray'}} style={{marginLeft:'97%'}}>X</h3></Link>
           {/* <Link to='/'><img src='https://www.freeiconspng.com/thumbs/x-png/x-png-15.png' style={{width:'20px' ,marginLeft:'97%'}}></img></Link> */}
-              <div className="profile-card__cnt js-profile-cnt" style={{marginLeft:'10px' ,display:'flex',justifyContent:'center',flexWrap:'wrap'}}> 
+              <div className="profile-card__cnt js-profile-cnt" style={{marginTop:'40px' ,display:'flex',justifyContent:'center',flexWrap:'wrap',}}> 
                   {
                     (articles)?
                   articles.map((article,i) => (
-                      <div style={{width:'200px',height:'200px',background:'red',padding:'2px,2px'}}>
+                      <div style={{width:'200px',height:'200px',background:'red',marginLeft:'10px'}}>
 
                     
                       </div>

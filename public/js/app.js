@@ -2750,7 +2750,7 @@ function AllArticles() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "profile-card__cnt js-profile-cnt",
         style: {
-          marginLeft: '10px',
+          marginTop: '40px',
           display: 'flex',
           justifyContent: 'center',
           flexWrap: 'wrap'
@@ -2761,7 +2761,7 @@ function AllArticles() {
               width: '200px',
               height: '200px',
               background: 'red',
-              padding: '2px,2px'
+              marginLeft: '10px'
             }
           }) // <ul key={i} className="list-group" style={{width:'100%'}}>
           //   <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
