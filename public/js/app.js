@@ -2769,7 +2769,7 @@ function AllArticles() {
                 margin: '50px 10px 0 0'
               },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "asd",
+                src: "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png",
                 "class": "w3-round",
                 alt: "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
               })
