@@ -203,7 +203,7 @@ function AddArticle() {
                     </div>
                         <div className="forms_buttons" style={{marginTop:'0'}}>
                         <input type="submit" value="Add Article" className="forms_buttons-action" style={{background:'darkgray'}} onClick={()=>AddArticle()}/>
-                            <button className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter" >Cancel</button>
+                            <button className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter" >Cancelasdas</button>
                             
                         </div>
                 </div>
