@@ -40,19 +40,36 @@ function AllArticles() {
                   {
                     (articles)?
                   articles.map((article,i) => (
-                    <ul key={i} className="list-group" style={{width:'100%'}}>
-                      <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
-                        <Link to={`/article/${article.id}`} >
-                        {article.title} {article.description} 
-                        </Link>  
-                      </li>
+                      <div style={{border:'2px solid red'}}>
+
+                    
+                      </div>
+                    // <ul key={i} className="list-group" style={{width:'100%'}}>
+                    //   <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
+                    //     <Link to={`/article/${article.id}`} >
+                    //     {article.title} {article.description} 
+                    //     </Link>  
+                    //   </li>
     
-                    </ul>
+                    // </ul>
                   )):''
                   }
               </div>
             </div>
          </div>
+
+        //  <div style={{width:'90%',display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
+        //                     {
+        //                         (images)?
+        //                             images.map((image,i) => (
+
+        //                                 <div className="content" key ={i}>
+        //                                     <img  src={ window.location.origin + `/images/${image.image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
+        //                                 </div>
+        //                             ))
+        //                         :''
+        //                     }
+        //                 </div>
     );
 }
 export default AllArticles;
