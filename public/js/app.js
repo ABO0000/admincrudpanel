@@ -2750,7 +2750,7 @@ function AllArticles() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "profile-card__cnt js-profile-cnt",
         style: {
-          marginTop: '20px auto',
+          marginTop: ' auto 20px',
           display: 'flex',
           justifyContent: 'start',
           flexWrap: 'wrap'
