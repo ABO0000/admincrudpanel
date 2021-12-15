@@ -2498,7 +2498,7 @@ function AddArticle() {
             "data-toggle": "modal",
             "data-target": "#exampleModalCenter",
             style: {
-              width: '80px',
+              width: '150px',
               background: 'darkgray'
             }
           })]
@@ -2736,12 +2736,11 @@ function AllArticles() {
       className: "profile-card js-profile-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         to: "/",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-          src: "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
           style: {
-            width: '20px',
-            marginLeft: '97%'
-          }
+            color: 'darkgray'
+          },
+          children: "X"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "profile-card__cnt js-profile-cnt",
