@@ -203,8 +203,8 @@ function AddArticle() {
                     </div>
                         <div className="forms_buttons" style={{marginTop:'0'}}>
 
-                            <button type="submit"  className="profile-card__button button--blue js-message-btn"  onClick={()=>AddArticle()}>Add Article</button>
-                            <input value="Cancel" className="forms_buttons-action" data-toggle="modal" data-target="#exampleModalCenter" style={{width:'150px', background:'darkgray',}}/>
+                            <button className="profile-card__button button--blue js-message-btn"  onClick={()=>AddArticle()}>Add Article</button>
+                            <input value="Cancel" type="submit" className="forms_buttons-action" data-toggle="modal" data-target="#exampleModalCenter" style={{width:'150px', background:'darkgray',}}/>
 
                         {/* <input type="submit" value="Add Article" className="forms_buttons-action" style={{background:'darkgray'}} onClick={()=>AddArticle()}/> */}
                             {/* <button className="profile-card__button button--blue js-message-btn" data-toggle="modal" data-target="#exampleModalCenter" >Cancel</button> */}
