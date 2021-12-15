@@ -2762,7 +2762,7 @@ function AllArticles() {
                 width: '200px',
                 height: '200px',
                 background: 'red',
-                margin: '100px 10px 0 0'
+                margin: '50px 10px 0 0'
               }
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
               to: "/article/".concat(article.id),

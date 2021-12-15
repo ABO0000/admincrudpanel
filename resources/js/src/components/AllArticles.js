@@ -41,7 +41,7 @@ function AllArticles() {
                     (articles)?
                   articles.map((article,i) => (
                     <div>
-                      <div style={{width:'200px',height:'200px',background:'red',margin:'100px 10px 0 0'}}>
+                      <div style={{width:'200px',height:'200px',background:'red',margin:'50px 10px 0 0'}}>
 
                     
                       </div>
