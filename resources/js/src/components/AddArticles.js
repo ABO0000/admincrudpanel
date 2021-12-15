@@ -158,7 +158,7 @@ function AddArticle() {
             
             <div className="user_options-forms" id="user_options-forms" style={{marginLeft:'-25%'}}>
                 <div className="user_forms-login" style={{marginTop:'-50px'}}>
-                    <h2 className="forms_title">Add Articles</h2>
+                    <h2 className="forms_title">Addsadasd Articles</h2>
                     <div className="forms_form " style={{marginTop:'-10px'}}>
                         <fieldset className="forms_fieldset">
                         <div className="forms_field"  style={{marginBottom:'-10px'}}>
