@@ -47,7 +47,7 @@ function AllArticles() {
                       </div>
                       
                       <Link to={`/article/${article.id}`} >
-                       {article.title} {article.description} 
+                       <h3>{article.title} {article.description}</h3> 
                       </Link>  
                   </div>
 
