@@ -43,7 +43,7 @@ function AllArticles() {
                     <div>
                       <div style={{width:'200px',height:'200px',background:'red',margin:'50px 10px 0 0'}}>
 
-                        <img src="img_snowtops.jpg" class="w3-round" alt="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"/>
+                        <img src="asd" class="w3-round" alt="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"/>
                       </div>
                       
                       <Link to={`/article/${article.id}`} >
