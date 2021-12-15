@@ -2761,7 +2761,7 @@ function AllArticles() {
               width: '200px',
               height: '200px',
               background: 'red',
-              margin: '10px 100px 0 0'
+              margin: '100px 10px 0 0'
             }
           }) // <ul key={i} className="list-group" style={{width:'100%'}}>
           //   <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
