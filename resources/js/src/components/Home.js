@@ -84,8 +84,8 @@ function Home() {
     <div>
       <div className="google_homepage">
         <div className="google_homepage_header">
-      <h1>sadsaidujasgdoashdlj</h1>
           <ul>
+          <h1>sadsaidujasgdoashdlj</h1>
           {
             (!user)?
             <div  style={{display:'flex',flexWrap:'wrap',justifyContent:'center' , alignItems:'center'}}>
