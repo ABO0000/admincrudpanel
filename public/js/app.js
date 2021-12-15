@@ -2754,6 +2754,7 @@ function AllArticles() {
         className: "profile-card__cnt js-profile-cnt",
         style: {
           marginTop: '20px',
+          marginLeft: '20px',
           display: 'flex',
           justifyContent: 'start',
           flexWrap: 'wrap'
