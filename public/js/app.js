@@ -2738,6 +2738,9 @@ function AllArticles() {
     className: "wrapper",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "profile-card js-profile-card",
+      style: {
+        margin: auto
+      },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         to: "/",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", (_jsx2 = {
@@ -2750,7 +2753,7 @@ function AllArticles() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "profile-card__cnt js-profile-cnt",
         style: {
-          marginTop: ' auto 20px',
+          marginTop: '20px',
           display: 'flex',
           justifyContent: 'start',
           flexWrap: 'wrap'
