@@ -36,7 +36,7 @@ function AllArticles() {
         <div className="profile-card js-profile-card">
           <Link to='/'><h3 style={{color:'darkgray'}} style={{marginLeft:'97%'}}>X</h3></Link>
           {/* <Link to='/'><img src='https://www.freeiconspng.com/thumbs/x-png/x-png-15.png' style={{width:'20px' ,marginLeft:'97%'}}></img></Link> */}
-              <div className="profile-card__cnt js-profile-cnt" style={{marginTop:'20px' ,display:'flex',justifyContent:'center',flexWrap:'wrap',}}> 
+              <div className="profile-card__cnt js-profile-cnt" style={{marginTop:'20px' ,display:'flex',justifyContent:'start',flexWrap:'wrap',}}> 
                   {
                     (articles)?
                   articles.map((article,i) => (

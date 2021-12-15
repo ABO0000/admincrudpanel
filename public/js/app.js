@@ -2752,7 +2752,7 @@ function AllArticles() {
         style: {
           marginTop: '20px',
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'start',
           flexWrap: 'wrap'
         },
         children: articles ? articles.map(function (article, i) {
