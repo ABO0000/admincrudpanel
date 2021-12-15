@@ -2496,7 +2496,11 @@ function AddArticle() {
             value: "Cancel",
             className: "forms_buttons-action",
             "data-toggle": "modal",
-            "data-target": "#exampleModalCenter"
+            "data-target": "#exampleModalCenter",
+            style: {
+              width: '80px',
+              background: 'darkgray'
+            }
           })]
         })]
       })
