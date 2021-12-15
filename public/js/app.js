@@ -2487,19 +2487,16 @@ function AddArticle() {
           },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             type: "submit",
-            className: "forms_buttons-action",
-            style: {
-              background: 'darkgray'
-            },
+            className: "profile-card__button button--blue js-message-btn",
             onClick: function onClick() {
               return AddArticle();
             },
             children: "Add Article"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-            className: "profile-card__button button--blue js-message-btn",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            value: "Cancel",
+            className: "forms_buttons-action",
             "data-toggle": "modal",
-            "data-target": "#exampleModalCenter",
-            children: "Cancel"
+            "data-target": "#exampleModalCenter"
           })]
         })]
       })
