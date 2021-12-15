@@ -2766,8 +2766,8 @@ function AllArticles() {
               }
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
               to: "/article/".concat(article.id),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
-                children: [article.title, " ", article.description]
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h4", {
+                children: [article.title, " "]
               })
             })]
           }) // <ul key={i} className="list-group" style={{width:'100%'}}>
