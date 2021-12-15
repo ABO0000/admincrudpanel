@@ -36,14 +36,21 @@ function AllArticles() {
         <div className="profile-card js-profile-card">
           <Link to='/'><h3 style={{color:'darkgray'}} style={{marginLeft:'97%'}}>X</h3></Link>
           {/* <Link to='/'><img src='https://www.freeiconspng.com/thumbs/x-png/x-png-15.png' style={{width:'20px' ,marginLeft:'97%'}}></img></Link> */}
-              <div className="profile-card__cnt js-profile-cnt" style={{marginTop:'40px' ,display:'flex',justifyContent:'center',flexWrap:'wrap',}}> 
+              <div className="profile-card__cnt js-profile-cnt" style={{marginTop:'20px' ,display:'flex',justifyContent:'center',flexWrap:'wrap',}}> 
                   {
                     (articles)?
                   articles.map((article,i) => (
+                    <div>
                       <div style={{width:'200px',height:'200px',background:'red',margin:'100px 10px 0 0'}}>
 
                     
                       </div>
+                      
+                      <Link to={`/article/${article.id}`} >
+                       {article.title} {article.description} 
+                      </Link>  
+                  </div>
+
                     // <ul key={i} className="list-group" style={{width:'100%'}}>
                     //   <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
                     //     <Link to={`/article/${article.id}`} >

@@ -2750,19 +2750,24 @@ function AllArticles() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "profile-card__cnt js-profile-cnt",
         style: {
-          marginTop: '40px',
+          marginTop: '20px',
           display: 'flex',
           justifyContent: 'center',
           flexWrap: 'wrap'
         },
         children: articles ? articles.map(function (article, i) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            style: {
-              width: '200px',
-              height: '200px',
-              background: 'red',
-              margin: '100px 10px 0 0'
-            }
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              style: {
+                width: '200px',
+                height: '200px',
+                background: 'red',
+                margin: '100px 10px 0 0'
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+              to: "/article/".concat(article.id),
+              children: [article.title, " ", article.description]
+            })]
           }) // <ul key={i} className="list-group" style={{width:'100%'}}>
           //   <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
           //     <Link to={`/article/${article.id}`} >
