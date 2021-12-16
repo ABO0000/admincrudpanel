@@ -2766,17 +2766,9 @@ function AllArticles() {
                 width: '200px',
                 height: '200px',
                 background: 'red',
-                margin: '50px 10px 0 0'
-              },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png",
-                "class": "w3-round",
-                alt: "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png",
-                style: {
-                  width: "200px",
-                  height: "200px"
-                }
-              })
+                margin: '50px 10px 0 0',
+                backgroundImage: 'src("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png")'
+              }
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
               to: "/article/".concat(article.id),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h4", {

@@ -41,9 +41,9 @@ function AllArticles() {
                     (articles)?
                   articles.map((article,i) => (
                     <div>
-                      <div style={{width:'200px',height:'200px',background:'red',margin:'50px 10px 0 0'}}>
+                      <div style={{width:'200px',height:'200px',background:'red',margin:'50px 10px 0 0' , backgroundImage:'src("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png")'}}>
 
-                        <img src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" class="w3-round" alt="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" style={{width:"200px" , height:"200px"}}/>
+                        {/* <img src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" className="w3-round" alt="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" style={{width:"200px" , height:"200px"}}/> */}
 
                       </div>
                       
