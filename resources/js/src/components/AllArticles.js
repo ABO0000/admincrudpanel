@@ -41,7 +41,7 @@ function AllArticles() {
                     (articles)?
                   articles.map((article,i) => (
                     <div>
-                      <div style={{width:'200px',height:'200px',margin:'50px 10px 0 0' , backgroundImage:'url("img_tree.gif"),url("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png")', boxSizing:'border-box',backgroundSize:'cover',backgroundPosition: 'center'}}>
+                      <div style={{width:'200px',height:'200px',margin:'50px 10px 0 0' , backgroundImage:'url("https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"),url("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png")', boxSizing:'border-box',backgroundSize:'cover',backgroundPosition: 'center'}}>
 
                         {/* <img src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" className="w3-round" alt="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" style={{width:"200px" , height:"200px"}}/> */}
 
