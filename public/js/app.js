@@ -2780,7 +2780,6 @@ function AllArticles() {
               },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 src: window.location.origin + "/images/".concat(article.images[0].image),
-                alt: "",
                 style: {
                   height: '200px',
                   maxWidth: '200px',
