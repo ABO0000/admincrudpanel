@@ -122,7 +122,6 @@ function Update() {
                                 :''
                             }
                         </div>
-
                 </div>
                     
                 <div className="profile-card-ctr"> 
