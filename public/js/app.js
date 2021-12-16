@@ -2766,7 +2766,7 @@ function AllArticles() {
                 width: '200px',
                 height: '200px',
                 margin: '50px 10px 0 0',
-                backgroundImage: 'url("https://cdn.pixabay.com/photo/2015dsf/04/23/22/00/tree-736885__480.jpg"),url("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png")',
+                backgroundImage: 'url("image"),url("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png")',
                 boxSizing: 'border-box',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
@@ -2777,7 +2777,7 @@ function AllArticles() {
                 children: [article.title, " "]
               })
             })]
-          }) // <ul key={i} className="list-group" style={{width:'100%'}}>
+          }, i) // <ul key={i} className="list-group" style={{width:'100%'}}>
           //   <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
           //     <Link to={`/article/${article.id}`} >
           //     {article.title} {article.description} 
