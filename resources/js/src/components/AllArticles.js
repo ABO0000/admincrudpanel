@@ -21,7 +21,7 @@ function AllArticles() {
     const [articles, setArticles] = useState();
 
     const [images, setImages] = useState([]);
-
+  let onlyimage=''
 
     useEffect(() => {
           console.log('ok')

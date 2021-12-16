@@ -2731,6 +2731,7 @@ function AllArticles() {
       images = _useState4[0],
       setImages = _useState4[1];
 
+  var onlyimage = '';
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log('ok');
     _Api__WEBPACK_IMPORTED_MODULE_1__["default"].post("/allArticles").then(function (res) {
