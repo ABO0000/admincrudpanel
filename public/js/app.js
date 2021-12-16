@@ -2777,7 +2777,7 @@ function AllArticles() {
                 children: [article.title, " "]
               })
             })]
-          }) // <ul key={i} className="list-group" style={{width:'100%'}}>
+          }, i) // <ul key={i} className="list-group" style={{width:'100%'}}>
           //   <li data-label="first name"  className="list-group-item"  style={{width:'350px',marginLeft:'5%',display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'center'}}>
           //     <Link to={`/article/${article.id}`} >
           //     {article.title} {article.description} 
