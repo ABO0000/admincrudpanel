@@ -49,17 +49,19 @@ function AllArticles() {
                         {/* <img src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" className="w3-round" alt="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" style={{width:"200px" , height:"200px"}}/> */}
 
                         {
-                                (images)?
-                                    images.map((image,i) => (
+                                (images)
+                                  ? <img  src={ window.location.origin + `/images/${images[0].image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
 
-                                        <div className="content" key ={i}>
-                                          {
-                                            (article.id==image.article_id)?
-                                              <img  src={ window.location.origin + `/images/${image.image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
-                                            :''
-                                          }
-                                        </div>
-                                    ))
+                                    // images.map((image,i) => (
+
+                                    //     <div className="content" key ={i}>
+                                    //       {
+                                    //         (article.id==image.article_id)?
+                                    //           <img  src={ window.location.origin + `/images/${image.image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
+                                    //         :''
+                                    //       }
+                                    //     </div>
+                                    // ))
                                 :''
                             }
 
