@@ -58,11 +58,11 @@ function AllArticles() {
                                             onlyimage=image.image
                                             :''
                                           }
-                                          <img  src={ window.location.origin + `/images/${onlyimage}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
                                         </div>
                                     ))
-                                :''
-                            }
+                                    :''
+                                  }
+                                  <img  src={ window.location.origin + `/images/${onlyimage}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
 
                       </div>
                       
