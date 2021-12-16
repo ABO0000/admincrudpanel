@@ -2779,18 +2779,17 @@ function AllArticles() {
                 backgroundPosition: 'center'
               },
               children: images ? images.map(function (image, i) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "content",
-                  children: article.id == image.article_id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                    src: window.location.origin + "/images/".concat(image.image),
-                    alt: "url(\"https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png\")",
+                  children: [article.id == image.article_id ? onlyimage = image.image : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                    src: window.location.origin + "/images/".concat(onlyimage),
                     style: {
                       height: '200px',
                       maxWidth: '200px',
                       border: '3px solid #ddd',
                       padding: '5px'
                     }
-                  }) : ''
+                  })]
                 }, i);
               }) : ''
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {

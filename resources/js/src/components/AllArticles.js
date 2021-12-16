@@ -55,9 +55,10 @@ function AllArticles() {
                                         <div className="content" key ={i}>
                                           {
                                             (article.id==image.article_id)?
-                                              <img  src={ window.location.origin + `/images/${image.image}`} alt='url("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png")' style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
+                                            onlyimage=image.image
                                             :''
                                           }
+                                          <img  src={ window.location.origin + `/images/${onlyimage}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
                                         </div>
                                     ))
                                 :''
