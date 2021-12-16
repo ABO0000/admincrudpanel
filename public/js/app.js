@@ -2779,7 +2779,7 @@ function AllArticles() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               },
-              children: [onlyimage = ''(images) ? images.map(function (image, i) {
+              children: [onlyimage === ''(images) ? images.map(function (image, i) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   className: "content",
                   children: article.id == image.article_id ? onlyimage = image.image : ''
