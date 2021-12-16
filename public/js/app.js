@@ -2766,7 +2766,7 @@ function AllArticles() {
                 width: '200px',
                 height: '200px',
                 margin: '50px 10px 0 0',
-                backgroundImage: 'url("img_tree.gif")',
+                backgroundImage: 'url("img_tree.gif"),url("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png")',
                 boxSizing: 'border-box',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
