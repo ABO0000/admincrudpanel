@@ -232,7 +232,7 @@ class UserController extends Controller
     public function allArticles(Request $request)
     {
 
-        $articles = Article::select('id','title','description','image')->get();
+        $articles = Article::select('id','title','description')->get();
         dd($articles);
         $images = Image::where('article_id',$articles->id)->get();
         return response()->json([
