@@ -20,6 +20,8 @@ function AllArticles() {
 
     const [articles, setArticles] = useState();
 
+    const [images, setImages] = useState([]);
+
 
     useEffect(() => {
           console.log('ok')
@@ -27,10 +29,11 @@ function AllArticles() {
           .then((res) => {
               console.log(res)
             setArticles( res.articles)
-            
+            setImages(res.images)
           });
       }, [setArticles]);
       console.log(articles)
+      console.log(images)
     return (
       <div className="wrapper">
         <div className="profile-card js-profile-card" style={{margin:'auto'}}>

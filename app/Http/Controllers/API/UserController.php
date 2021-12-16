@@ -234,11 +234,11 @@ class UserController extends Controller
 
         $articles = Article::select('id','title','description')->get();
         $images = Image::select('article_id','image')->get();
-        dd($images);
+        // dd($images);
         return response()->json([
             'status'=>200,
             'articles' => $articles,
-            
+            'images' => $images,
         ]);
         // return view('articles.index',compact('articles'))
         // ->with('i',(request()->input('page',1)-1)*5);

@@ -2726,14 +2726,21 @@ function AllArticles() {
       articles = _useState2[0],
       setArticles = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      images = _useState4[0],
+      setImages = _useState4[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log('ok');
     _Api__WEBPACK_IMPORTED_MODULE_1__["default"].post("/allArticles").then(function (res) {
       console.log(res);
       setArticles(res.articles);
+      setImages(res.images);
     });
   }, [setArticles]);
   console.log(articles);
+  console.log(images);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "wrapper",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
