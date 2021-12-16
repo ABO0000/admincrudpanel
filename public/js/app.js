@@ -3930,7 +3930,7 @@ function Update() {
                   style: {
                     color: 'darkgray',
                     width: '10px',
-                    marginLeft: '97%'
+                    marginLeft: '75%'
                   },
                   onClick: function onClick() {
                     return DeleteImage("".concat(image.image));
@@ -3943,7 +3943,7 @@ function Update() {
                   height: '200px',
                   maxWidth: '200px',
                   border: '3px solid #ddd',
-                  padding: '5px'
+                  padding: '10px'
                 }
               })]
             }, i);
