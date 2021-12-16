@@ -3923,21 +3923,20 @@ function Update() {
             justifyContent: 'center'
           },
           children: images ? images.map(function (image, i) {
-            var _jsx2;
-
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "content",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", (_jsx2 = {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
                   style: {
                     color: 'darkgray',
-                    marginLeft: '2px'
-                  }
-                }, _defineProperty(_jsx2, "style", {
-                  marginLeft: '97%'
-                }), _defineProperty(_jsx2, "onClick", function onClick() {
-                  return DeleteImage("".concat(image.image));
-                }), _defineProperty(_jsx2, "children", "X"), _jsx2))
+                    width: '10px',
+                    marginLeft: '97%'
+                  },
+                  onClick: function onClick() {
+                    return DeleteImage("".concat(image.image));
+                  },
+                  children: "X"
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 src: window.location.protocol + "/images/".concat(image.image),
                 style: {
