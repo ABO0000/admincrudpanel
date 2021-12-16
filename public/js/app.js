@@ -2778,7 +2778,7 @@ function AllArticles() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               },
-              children: images ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              children: images.length ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 src: window.location.origin + "/images/".concat(images[0].image),
                 style: {
                   height: '200px',
