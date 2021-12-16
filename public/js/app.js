@@ -2780,6 +2780,7 @@ function AllArticles() {
               },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 src: window.location.origin + "/images/".concat(article.images[0].image),
+                alt: "url(\"https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png\")",
                 style: {
                   height: '200px',
                   maxWidth: '200px',
