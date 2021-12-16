@@ -49,7 +49,7 @@ function AllArticles() {
                         {/* <img src="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" className="w3-round" alt="https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png" style={{width:"200px" , height:"200px"}}/> */}
 
                         {
-                        onlyimage=0
+                        onlyimage
                           (images)?
                                     images.map((image,i) => (
 
