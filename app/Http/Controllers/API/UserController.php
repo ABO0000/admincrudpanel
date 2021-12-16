@@ -233,8 +233,8 @@ class UserController extends Controller
     {
 
         $articles = Article::select('id','title','description','image')->get();
+        dd($articles);
         $images = Image::where('article_id',$articles->id)->get();
-        dd($images);
         return response()->json([
             'status'=>200,
             'articles' => $articles,
