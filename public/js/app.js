@@ -2778,15 +2778,16 @@ function AllArticles() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: window.location.origin + "/images/".concat(articles.images[0].image),
+              children: article.images.lenght ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: window.location.origin + "/images/".concat(article.images[0].image),
+                alt: "",
                 style: {
                   height: '200px',
                   maxWidth: '200px',
                   border: '3px solid #ddd',
                   padding: '5px'
                 }
-              })
+              }) : null
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
               to: "/article/".concat(article.id),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h4", {
