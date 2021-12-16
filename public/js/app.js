@@ -3925,12 +3925,15 @@ function Update() {
           children: images ? images.map(function (image, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "content",
+              style: {
+                marginLeft: '2px'
+              },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                   style: {
                     color: 'darkgray',
                     width: '10px',
-                    marginLeft: '75%'
+                    marginLeft: '95%'
                   },
                   onClick: function onClick() {
                     return DeleteImage("".concat(image.image));
@@ -3943,7 +3946,7 @@ function Update() {
                   height: '200px',
                   maxWidth: '200px',
                   border: '3px solid #ddd',
-                  padding: '10px'
+                  padding: '5px'
                 }
               })]
             }, i);
