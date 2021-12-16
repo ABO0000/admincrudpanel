@@ -2778,18 +2778,20 @@ function AllArticles() {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               },
-              children: images ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "content",
-                children: article.id == image.article_id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                  src: window.location.origin + "/images/".concat(image.image),
-                  style: {
-                    height: '200px',
-                    maxWidth: '200px',
-                    border: '3px solid #ddd',
-                    padding: '5px'
-                  }
-                }) : ''
-              }, i) : ''
+              children: images ? images.map(function (image, i) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  className: "content",
+                  children: article.id == image.article_id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                    src: window.location.origin + "/images/".concat(image.image),
+                    style: {
+                      height: '200px',
+                      maxWidth: '200px',
+                      border: '3px solid #ddd',
+                      padding: '5px'
+                    }
+                  }) : ''
+                }, i);
+              }) : ''
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
               to: "/article/".concat(article.id),
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h4", {

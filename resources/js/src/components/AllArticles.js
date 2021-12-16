@@ -50,7 +50,7 @@ function AllArticles() {
 
                         {
                                 (images)?
-                                    
+                                    images.map((image,i) => (
 
                                         <div className="content" key ={i}>
                                           {
@@ -59,7 +59,7 @@ function AllArticles() {
                                             :''
                                           }
                                         </div>
-                                    
+                                    ))
                                 :''
                             }
 
