@@ -17,8 +17,11 @@ class Article extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class, 'user_id');
-        
+        return $this->belongsTo(User::class, 'user_id');   
+    }
+
+    public function images() {
+        return $this->belongsTo(Image::class, 'article_id');
     }
 }
 
