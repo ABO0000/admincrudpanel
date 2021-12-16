@@ -114,7 +114,7 @@ function Update() {
 
                                         <div className="content" key ={i}>
                                           <div>
-                                          <h3 style={{color:'darkgray'}} style={{marginLeft:'97%'}} onClick={() => DeleteImage(`${image.image}`)}>X</h3>
+                                          <h6 style={{color:'darkgray' ,marginLeft:'2px'}} style={{marginLeft:'97%'}} onClick={() => DeleteImage(`${image.image}`)}>X</h6>
                                           </div>
                                           <img  src={ window.location.protocol+`/images/${image.image}`}  style={{height:'200px',maxWidth:'200px',border: '3px solid #ddd', padding: '5px'}}/> 
                                         </div>
